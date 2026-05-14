@@ -1,0 +1,277 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroVisual from '../components/HeroVisual.astro';
+import LanguageToggle from '../components/LanguageToggle.astro';
+import LocalizedText from '../components/LocalizedText.astro';
+import { siteData } from '../data/site';
+
+
+---
+
+<BaseLayout title={siteData.meta.title} description={siteData.meta.description}>
+  <main class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Cliptate">
+        <img class="brand-icon" src="/assets/app-icon.png" alt="" width="28" height="28" aria-hidden="true" />
+        <span class="brand-wordmark">Cliptate</span>
+      </a>
+
+      <nav class="top-nav" aria-label="Primary">
+        {
+          siteData.nav.map((item) => (
+            <a href={item.href}>
+              <LocalizedText value={item.label} />
+            </a>
+          ))
+        }
+      </nav>
+
+      <div class="header-actions">
+        <LanguageToggle />
+        <a class="header-link" href={siteData.githubUrl} target="_blank" rel="noreferrer">
+          GitHub
+        </a>
+      </div>
+    </header>
+
+    <section class="section hero" id="top">
+      <div class="hero-copy">
+        <div class="section-copy">
+          <p class="eyebrow">
+            <LocalizedText value={siteData.hero.kicker} />
+          </p>
+          <h1 class="hero-title">
+            <LocalizedText value={siteData.hero.title} />
+          </h1>
+          <p class="lede hero-lede">
+            <LocalizedText value={siteData.hero.description} />
+          </p>
+        </div>
+
+        <div class="cta-row">
+          <a
+            class="cta-primary"
+            href={siteData.appStoreUrl}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <LocalizedText value={siteData.hero.primaryCta} />
+          </a>
+          <a
+            class="cta-secondary"
+            href={siteData.githubUrl}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <LocalizedText value={siteData.hero.secondaryCta} />
+          </a>
+        </div>
+
+        <div class="pill-row" aria-label="Highlights">
+          {
+            siteData.hero.pills.map((pill) => (
+              <span class="pill">
+                <LocalizedText value={pill} />
+              </span>
+            ))
+          }
+        </div>
+      </div>
+
+      <HeroVisual />
+    </section>
+
+    <section class="section proof-strip" aria-label="Key differentiators">
+      {
+        siteData.proof.items.map((item) => (
+          <article class="proof-card">
+            <p class="proof-value">{item.value}</p>
+            <p class="proof-label">
+              <LocalizedText value={item.label} />
+            </p>
+          </article>
+        ))
+      }
+    </section>
+
+    <section class="section" id="features">
+      <div class="section-copy section-copy--narrow">
+        <p class="eyebrow">
+          <LocalizedText value={siteData.features.kicker} />
+        </p>
+        <h2 class="section-title">
+          <LocalizedText value={siteData.features.title} />
+        </h2>
+        <p class="lede">
+          <LocalizedText value={siteData.features.description} />
+        </p>
+      </div>
+
+      <div class="feature-grid">
+        {
+          siteData.features.items.map((feature) => (
+            <article class="feature-card">
+              <div class="feature-topline">
+                <span class="feature-index">{feature.index}</span>
+                <span class="feature-tag">
+                  <LocalizedText value={feature.tag} />
+                </span>
+              </div>
+              <h3>
+                <LocalizedText value={feature.title} />
+              </h3>
+              <p>
+                <LocalizedText value={feature.body} />
+              </p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="section workflow" id="workflow">
+      <div class="section-copy">
+        <p class="eyebrow">
+          <LocalizedText value={siteData.workflow.kicker} />
+        </p>
+        <h2 class="section-title">
+          <LocalizedText value={siteData.workflow.title} />
+        </h2>
+        <p class="lede">
+          <LocalizedText value={siteData.workflow.description} />
+        </p>
+      </div>
+
+      <div class="workflow-grid">
+        {
+          siteData.workflow.steps.map((step) => (
+            <article class="workflow-card">
+              <div class="workflow-index">{step.index}</div>
+              <h3>
+                <LocalizedText value={step.title} />
+              </h3>
+              <p>
+                <LocalizedText value={step.body} />
+              </p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="section dual-panel" id="privacy">
+      <article class="glass-panel">
+        <div class="section-copy section-copy--tight">
+          <p class="eyebrow">
+            <LocalizedText value={siteData.privacy.kicker} />
+          </p>
+          <h2 class="section-title">
+            <LocalizedText value={siteData.privacy.title} />
+          </h2>
+          <p class="lede">
+            <LocalizedText value={siteData.privacy.description} />
+          </p>
+        </div>
+
+        <ul class="check-list">
+          {
+            siteData.privacy.points.map((item) => (
+              <li>
+                <span class="check-mark" aria-hidden="true"></span>
+                <LocalizedText value={item} />
+              </li>
+            ))
+          }
+        </ul>
+      </article>
+
+      <article class="glass-panel" id="compatibility">
+        <div class="section-copy section-copy--tight">
+          <p class="eyebrow">
+            <LocalizedText value={siteData.compatibility.kicker} />
+          </p>
+          <h2 class="section-title">
+            <LocalizedText value={siteData.compatibility.title} />
+          </h2>
+          <p class="lede">
+            <LocalizedText value={siteData.compatibility.description} />
+          </p>
+        </div>
+
+        <div class="compatibility-grid">
+          {
+            siteData.compatibility.outputs.map((item) => (
+              <div class="compatibility-chip">
+                <span>{item.code}</span>
+                <LocalizedText value={item.label} />
+              </div>
+            ))
+          }
+        </div>
+
+        <div class="compatibility-note">
+          <LocalizedText value={siteData.compatibility.note} />
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="scenarios">
+      <div class="section-copy section-copy--narrow">
+        <p class="eyebrow">
+          <LocalizedText value={siteData.scenarios.kicker} />
+        </p>
+        <h2 class="section-title">
+          <LocalizedText value={siteData.scenarios.title} />
+        </h2>
+      </div>
+
+      <div class="scenario-grid">
+        {
+          siteData.scenarios.items.map((item) => (
+            <article class="scenario-card">
+              <p class="scenario-title">
+                <LocalizedText value={item.title} />
+              </p>
+              <p class="scenario-body">
+                <LocalizedText value={item.body} />
+              </p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="section final-cta" id="cta">
+      <div class="section-copy section-copy--narrow">
+        <p class="eyebrow">
+          <LocalizedText value={siteData.cta.kicker} />
+        </p>
+        <h2 class="section-title">
+          <LocalizedText value={siteData.cta.title} />
+        </h2>
+        <p class="lede">
+          <LocalizedText value={siteData.cta.description} />
+        </p>
+      </div>
+
+      <div class="cta-row cta-row--center">
+        <a class="cta-primary" href={siteData.appStoreUrl} target="_blank" rel="noreferrer">
+          <LocalizedText value={siteData.cta.primaryCta} />
+        </a>
+        <a class="cta-secondary" href={siteData.githubUrl} target="_blank" rel="noreferrer">
+          <LocalizedText value={siteData.cta.secondaryCta} />
+        </a>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>
+        <LocalizedText value={siteData.footer.tagline} />
+      </p>
+      <div class="footer-links">
+        <a href={siteData.githubUrl} target="_blank" rel="noreferrer">GitHub</a>
+        <a href={siteData.appStoreUrl} target="_blank" rel="noreferrer">App Store</a>
+      </div>
+    </footer>
+  </main>
+</BaseLayout>

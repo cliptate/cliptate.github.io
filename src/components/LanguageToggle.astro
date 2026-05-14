@@ -1,0 +1,42 @@
+<div class="language-toggle" data-language-toggle>
+  <button type="button" data-lang-button="zh" aria-pressed="true">中文</button>
+  <button type="button" data-lang-button="en" aria-pressed="false">EN</button>
+</div>
+
+<script is:inline>
+  const storageKey = 'cliptate-language';
+
+  function applyLanguage(language) {
+    const lang = language === 'en' ? 'en' : 'zh';
+    document.documentElement.dataset.lang = lang;
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+
+    document.querySelectorAll('[data-lang-button]').forEach((button) => {
+      button.setAttribute('aria-pressed', button.dataset.langButton === lang ? 'true' : 'false');
+    });
+
+    try {
+      localStorage.setItem(storageKey, lang);
+    } catch {}
+  }
+
+  function initLanguageToggle() {
+    let preferred = 'zh';
+
+    try {
+      preferred = localStorage.getItem(storageKey) || preferred;
+    } catch {}
+
+    applyLanguage(preferred);
+
+    document.querySelectorAll('[data-lang-button]').forEach((button) => {
+      button.addEventListener('click', () => applyLanguage(button.dataset.langButton || 'zh'));
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLanguageToggle, { once: true });
+  } else {
+    initLanguageToggle();
+  }
+</script>

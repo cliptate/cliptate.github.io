@@ -1,0 +1,61 @@
+---
+import LocalizedText from './LocalizedText.astro';
+---
+
+<div class="hero-visual" aria-hidden="true">
+  <!-- background ring decorations -->
+  <div class="hv-ring hv-ring--lg"></div>
+  <div class="hv-ring hv-ring--sm"></div>
+
+  <!-- app icon -->
+  <div class="hv-icon-wrap">
+    <img class="hv-icon" src="/assets/app-icon.png" alt="Cliptate app icon" width="160" height="160" />
+    <div class="hv-icon-glow"></div>
+  </div>
+
+  <!-- floating feature chips -->
+  <div class="hv-chip hv-chip--a">
+    <span class="hv-chip-dot"></span>
+    <LocalizedText value={{ zh: '端侧语音识别', en: 'On-device ASR' }} />
+  </div>
+  <div class="hv-chip hv-chip--b">
+    <span class="hv-chip-dot"></span>
+    <LocalizedText value={{ zh: '智能去停顿', en: 'Smart Trim' }} />
+  </div>
+  <div class="hv-chip hv-chip--c">
+    <span class="hv-chip-dot"></span>
+    <LocalizedText value={{ zh: '声音克隆增强', en: 'Voice Clone & Enhance' }} />
+  </div>
+  <div class="hv-chip hv-chip--d">
+    <span class="hv-chip-dot"></span>
+    <LocalizedText value={{ zh: 'AI 纠错翻译', en: 'AI Correction & Translation' }} />
+  </div>
+
+  <!-- bottom timeline strip -->
+  <div class="hv-timeline">
+    <div class="hv-tl-label">
+      <LocalizedText value={{ zh: '字幕轨', en: 'Caption Track' }} />
+    </div>
+    <div class="hv-tl-track">
+      <div class="hv-tl-bar hv-tl-bar--a"></div>
+      <div class="hv-tl-bar hv-tl-bar--gap"></div>
+      <div class="hv-tl-bar hv-tl-bar--b"></div>
+      <div class="hv-tl-bar hv-tl-bar--gap hv-tl-bar--short"></div>
+      <div class="hv-tl-bar hv-tl-bar--c"></div>
+    </div>
+    <div class="hv-tl-track">
+      <div class="hv-tl-bar hv-tl-bar--wide hv-tl-bar--muted"></div>
+      <div class="hv-tl-bar hv-tl-bar--gap hv-tl-bar--tiny"></div>
+      <div class="hv-tl-bar hv-tl-bar--mid hv-tl-bar--muted"></div>
+    </div>
+    <div class="hv-waveform">
+      {Array.from({ length: 20 }).map((_, i) => <span class="hv-wave-bar" style={`--i:${i}`}></span>)}
+    </div>
+    <div class="hv-export-row">
+      <span class="hv-export-badge">FCPXML</span>
+      <span class="hv-export-badge">SRT</span>
+      <span class="hv-export-badge">ASS</span>
+      <span class="hv-export-badge">VTT</span>
+    </div>
+  </div>
+</div>
