@@ -325,26 +325,26 @@ import { siteData } from '../data/site';
       </div>
     </section>
 
-    <section class="section final-cta" id="cta">
-      <div class="section-copy section-copy--narrow">
+    <section class="section" id="cta">
+      <div class="cta-card">
+        <div class="cta-card-glow" aria-hidden="true"></div>
         <p class="eyebrow">
           <LocalizedText value={siteData.cta.kicker} />
         </p>
-        <h2 class="section-title">
+        <h2 class="section-title cta-card-title">
           <LocalizedText value={siteData.cta.title} />
         </h2>
-        <p class="lede">
+        <p class="lede cta-card-lede">
           <LocalizedText value={siteData.cta.description} />
         </p>
-      </div>
-
-      <div class="cta-row cta-row--center">
-        <a class="cta-primary" href={siteData.appStoreUrl} target="_blank" rel="noreferrer">
-          <LocalizedText value={siteData.cta.primaryCta} />
-        </a>
-        <a class="cta-secondary" href={siteData.githubUrl} target="_blank" rel="noreferrer">
-          <LocalizedText value={siteData.cta.secondaryCta} />
-        </a>
+        <div class="cta-row cta-row--center">
+          <a class="cta-primary" href={siteData.appStoreUrl} target="_blank" rel="noreferrer">
+            <LocalizedText value={siteData.cta.primaryCta} />
+          </a>
+          <a class="cta-secondary" href={siteData.githubUrl} target="_blank" rel="noreferrer">
+            <LocalizedText value={siteData.cta.secondaryCta} />
+          </a>
+        </div>
       </div>
     </section>
 
