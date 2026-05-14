@@ -12,12 +12,13 @@ export const siteData = {
       en: 'Cliptate — The on-device AI workspace for audio and video creators',
     },
     description: {
-      zh: '为 Mac 创作者打造的端侧 AI 助手：离线转写、智能去停顿、声音增强、翻译纠错与专业级时间线导出。',
-      en: 'A Mac-first on-device AI assistant for creators with local transcription, smart trimming, voice enhancement, translation, and timeline-ready exports.',
+      zh: '为 Mac 创作者打造的端侧 AI 助手：实时语音听写、离线转写、智能去停顿、多模态 TTS 合成、翻译纠错与专业级时间线导出。',
+      en: 'A Mac-first on-device AI assistant for creators with live voice dictation, local transcription, smart trimming, multi-mode TTS synthesis, translation, and timeline-ready exports.',
     },
   },
   nav: [
     { href: '#features', label: { zh: '核心功能', en: 'Features' } },
+    { href: '#voice', label: { zh: '语音', en: 'Voice' } },
     { href: '#workflow', label: { zh: '工作流', en: 'Workflow' } },
     { href: '#privacy', label: { zh: '隐私与性能', en: 'Privacy' } },
     { href: '#cta', label: { zh: '立即体验', en: 'Get Cliptate' } },
@@ -32,8 +33,8 @@ export const siteData = {
       en: 'Move the repetitive editing work to fully local AI.',
     },
     description: {
-      zh: 'Cliptate 将离线转写、智能去停顿、声音增强、翻译纠错与专业导出整合进同一条创作链路，让你更快进入真正的叙事和表达。',
-      en: 'Cliptate unifies offline transcription, pause trimming, voice enhancement, translation, and pro exports into one creator workflow so you can stay focused on storytelling.',
+      zh: 'Cliptate 将实时听写、转写、精剪、增强、TTS 合成与专业导出整合进一条本地链路，让你更快进入叙事。',
+      en: 'One on-device pipeline — from dictation to dubbing — so you spend less time on process and more on storytelling.',
     },
     primaryCta: {
       zh: '在 App Store 查看',
@@ -45,6 +46,7 @@ export const siteData = {
     },
     pills: [
       { zh: '100% 本地运行', en: '100% local processing' },
+      { zh: '实时听写与 TTS 合成', en: 'Live dictation and TTS synthesis' },
       { zh: '为 Final Cut / Resolve / Premiere 准备', en: 'Ready for FCP / Resolve / Premiere' },
       { zh: '零云端上传', en: 'Zero cloud upload' },
     ],
@@ -65,9 +67,9 @@ export const siteData = {
   },
   proof: {
     items: [
-      { value: 'Offline', label: { zh: '转写与增强均在设备侧完成', en: 'Transcription and enhancement stay on your device' } },
+      { value: 'Offline', label: { zh: '转写与合成均在设备侧完成', en: 'Transcription and synthesis stay on your device' } },
       { value: 'Fast Cut', label: { zh: '静音裁剪与粗剪提速', en: 'Silence trimming accelerates rough cuts' } },
-      { value: 'Studio', label: { zh: '降噪、EQ、动态处理一体化', en: 'Noise reduction, EQ, and dynamics in one pass' } },
+      { value: 'Speakers', label: { zh: '多说话人自动识别与标注', en: 'Multi-speaker diarization and labeling' } },
       { value: 'Export', label: { zh: '字幕和时间线直接进入后期', en: 'Subtitles and timelines hand off cleanly to post' } },
     ],
   },
@@ -84,11 +86,11 @@ export const siteData = {
     items: [
       {
         index: '01',
-        tag: { zh: '离线转写', en: 'Offline transcription' },
+        tag: { zh: '转写与听写', en: 'Transcription and dictation' },
         title: { zh: '字幕提取精准且可编辑', en: 'Accurate, editable subtitle extraction' },
         body: {
-          zh: '直接在本地生成高精度字幕，不上传音频，不牺牲隐私。',
-          en: 'Generate accurate captions locally without shipping audio to the cloud.',
+          zh: '批量转写文件，或切换到实时听写模式口述文本——全程本地，音频不上传。',
+          en: 'Batch-transcribe files or dictate live — all on-device, no audio upload.',
         },
       },
       {
@@ -96,26 +98,26 @@ export const siteData = {
         tag: { zh: '智能精剪', en: 'Smart trimming' },
         title: { zh: '批量去停顿，粗剪更快成型', en: 'Trim pauses in bulk and shape rough cuts faster' },
         body: {
-          zh: '自动识别无声片段，快速裁剪播客、访谈和课程录音中的冗余停顿。',
-          en: 'Detect and remove dead air across podcasts, interviews, and course recordings.',
+          zh: '自动检测无声片段，批量裁剪播客、访谈、课程录音中的冗余停顿。',
+          en: 'Auto-detect silence and bulk-trim dead air from podcasts, interviews, and recordings.',
         },
       },
       {
         index: '03',
-        tag: { zh: '声音增强', en: 'Voice enhancement' },
-        title: { zh: '本地完成降噪、EQ 与动态处理', en: 'Apply denoise, EQ, and dynamics on-device' },
+        tag: { zh: '说话人识别', en: 'Speaker diarization' },
+        title: { zh: '自动区分说话人，标注对话结构', en: 'Auto-identify speakers and label dialogue' },
         body: {
-          zh: '用接近录音室流程的处理链，让旁白、人声和播客轨道更稳定、更清晰。',
-          en: 'Bring narration, dialogue, and podcast tracks closer to a studio-grade finish.',
+          zh: '自动识别多位说话人并分段标注，让访谈、播客和会议记录的结构一目了然。',
+          en: 'Automatically identify and label multiple speakers so interviews, podcasts, and meeting transcripts are instantly clear.',
         },
       },
       {
         index: '04',
-        tag: { zh: '声音克隆', en: 'Voice cloning' },
-        title: { zh: '用本地模型完成自然配音', en: 'Create natural dubbing with local models' },
+        tag: { zh: 'TTS 合成', en: 'Voice synthesis' },
+        title: { zh: '四种模式覆盖从补录到原创配音的全部需求', en: 'Four TTS modes from pick-ups to original voice creation' },
         body: {
-          zh: '保留角色质感与表达节奏，适合补录、配音和多语种版本制作。',
-          en: 'Keep tone and cadence intact for pick-ups, dubbing, and multilingual versions.',
+          zh: '预设音色、声音克隆、情感控制、音色设计——四种模式，按需选用。',
+          en: 'Preset, clone, emotion control, or voice design — four modes for any voicing need.',
         },
       },
       {
@@ -132,7 +134,7 @@ export const siteData = {
         tag: { zh: '高亮标记', en: 'Highlighting' },
         title: { zh: '自动抓出关键句与高光片段', en: 'Surface the lines and moments worth revisiting' },
         body: {
-          zh: '把精彩片段主动标记到时间线上，帮助你更快找到可发布的内容段落。',
+          zh: '把精彩片段主动标记到时间线，更快找到可发布的内容段落。',
           en: 'Flag the strongest moments on the timeline so publishing edits move faster.',
         },
       },
@@ -145,8 +147,8 @@ export const siteData = {
       en: 'From import to export, keep the workflow in one fast production line.',
     },
     description: {
-      zh: 'Cliptate 的价值不是单个模型，而是把创作者最耗时的步骤压缩成四个连续动作。',
-      en: 'The value is not one model by itself, but compressing the slowest creator tasks into four connected steps.',
+      zh: '把创作者最耗时的步骤，压缩成四个连续动作。',
+      en: 'The most time-consuming creator tasks, compressed into four connected steps.',
     },
     steps: [
       {
@@ -167,10 +169,10 @@ export const siteData = {
       },
       {
         index: '03',
-        title: { zh: '增强声音并生成多语版本', en: 'Enhance voice and create multilingual versions' },
+        title: { zh: '生成多语配音与翻译版本', en: 'Create multilingual dubbed and translated versions' },
         body: {
-          zh: '针对旁白和人声做本地处理，再完成翻译与多语配音。',
-          en: 'Refine voice locally, then branch into translated and dubbed versions.',
+          zh: '通过 TTS 合成完成配音，再交由翻译模块生成多语版本。',
+          en: 'Use TTS synthesis for dubbing, then branch into translated versions.',
         },
       },
       {
@@ -190,14 +192,14 @@ export const siteData = {
       en: 'Fully local means more than privacy. It means a smoother workflow.',
     },
     description: {
-      zh: '没有云端排队、没有敏感素材上传、也没有网络往返等待。所有关键处理都留在你的 Mac 上完成。',
-      en: 'No cloud queue, no sensitive media upload, and no waiting on network round trips. The entire critical path stays on your Mac.',
+      zh: '没有云端排队，没有素材上传，没有网络等待。',
+      en: 'No cloud queue. No media upload. No network wait.',
     },
     points: [
-      { zh: '素材不离开设备，适合隐私敏感内容与合规要求。', en: 'Media stays on-device for privacy-sensitive work and compliance needs.' },
-      { zh: '不受网络波动影响，创作节奏不会被上传和下载打断。', en: 'Network volatility never interrupts the editing rhythm.' },
-      { zh: '端侧模型直接服务后期流程，减少跨平台搬运。', en: 'On-device models stay close to the editing workflow, not another platform.' },
-      { zh: '适合播客、课程、访谈、企业内部内容等需要控盘的场景。', en: 'Ideal for podcasts, courses, interviews, and internal media where control matters.' },
+      { zh: '素材不离开设备，适合隐私敏感内容。', en: 'Media stays on-device — safe for sensitive and regulated content.' },
+      { zh: '网络波动不影响创作节奏。', en: 'Network issues never disrupt your workflow.' },
+      { zh: '端侧模型直接嵌入后期流程，无需切换平台。', en: 'On-device models fit into your existing post workflow.' },
+      { zh: '适合播客、课程、访谈和企业内部内容。', en: 'Ideal for podcasts, courses, interviews, and internal media.' },
     ],
   },
   compatibility: {
@@ -207,8 +209,8 @@ export const siteData = {
       en: 'Plug directly into the editing tools you already use.',
     },
     description: {
-      zh: '导出格式保持专业流程兼容，让你不用为了 AI 处理重建整个后期链路。',
-      en: 'Export formats stay compatible with pro workflows, so AI processing does not force a new post stack.',
+      zh: '不需要为了 AI 处理重建后期链路，格式直接兼容。',
+      en: 'No need to rebuild your post stack — formats plug straight in.',
     },
     outputs: [
       { code: 'FCPXML', label: { zh: '适配时间线工程交换', en: 'Timeline project exchange' } },
@@ -243,10 +245,10 @@ export const siteData = {
         },
       },
       {
-        title: { zh: '课程与会议记录', en: 'Courses and meeting recordings' },
+        title: { zh: '课程、会议与口述记录', en: 'Courses, meetings, and dictation' },
         body: {
-          zh: '把长时内容压缩成可检索、可翻译、可交付的文本与字幕资产。',
-          en: 'Turn long-form recordings into searchable, translatable, deliverable text assets.',
+          zh: '把长时录音或实时语音输入压缩成可检索、可翻译、可交付的文本与字幕资产。',
+          en: 'Turn long recordings or live voice input into searchable, translatable, and deliverable text assets.',
         },
       },
       {
@@ -258,6 +260,57 @@ export const siteData = {
       },
     ],
   },
+  voice: {
+    kicker: { zh: '语音能力', en: 'Voice capabilities' },
+    title: {
+      zh: '实时听写与本地多模态语音合成。',
+      en: 'Real-time dictation and on-device multi-mode voice synthesis.',
+    },
+    description: {
+      zh: '从实时口述到 TTS 配音，两种语音能力，全程本地。',
+      en: 'From live dictation to TTS dubbing — two voice capabilities, entirely on-device.',
+    },
+    dictation: {
+      kicker: { zh: '语音听写', en: 'Voice dictation' },
+      title: { zh: '说话即输入，实时生成可编辑文本', en: 'Speak to type — editable text in real time' },
+      description: {
+        zh: '实时流式转写麦克风音频，支持多说话人识别与自定义词典，全局快捷键随时唤起。',
+        en: 'Stream editable text from your mic in real time, with multi-speaker support, custom vocabulary, and a global shortcut.',
+      },
+      points: [
+        { zh: '流式实时转写，低延迟输出', en: 'Streaming transcription with minimal latency' },
+        { zh: '多说话人自动区分与标注', en: 'Automatic multi-speaker diarization' },
+        { zh: '自定义词典，提升专有词汇准确率', en: 'Custom vocabulary for domain-specific accuracy' },
+        { zh: '全局快捷键随时唤起或暂停', en: 'Global shortcut to invoke or pause anywhere' },
+      ],
+    },
+    tts: {
+      kicker: { zh: 'TTS 语音合成', en: 'TTS voice synthesis' },
+      title: { zh: '四种模式，按需选用', en: 'Four modes for every voicing need' },
+      modes: [
+        {
+          code: 'Preset',
+          title: { zh: '预设音色', en: 'Preset voices' },
+          body: { zh: '内置多语言音色库，即开即用。', en: 'Built-in multilingual voices, ready instantly.' },
+        },
+        {
+          code: 'Clone',
+          title: { zh: '声音克隆', en: 'Voice clone' },
+          body: { zh: '上传参考音频，复现音色与节奏。', en: 'Upload reference audio to reproduce timbre and cadence.' },
+        },
+        {
+          code: 'Emotion',
+          title: { zh: '情感控制', en: 'Emotion control' },
+          body: { zh: '通过提示词调控音色的情感与风格。', en: 'Steer emotion and style via text prompts.' },
+        },
+        {
+          code: 'Design',
+          title: { zh: '音色设计', en: 'Voice design' },
+          body: { zh: '用文字描述，生成原创声音形象。', en: 'Describe a voice in text to generate an original persona.' },
+        },
+      ],
+    },
+  },
   cta: {
     kicker: { zh: '现在开始', en: 'Start now' },
     title: {
@@ -265,8 +318,8 @@ export const siteData = {
       en: 'Keep your time for creation and let Cliptate absorb the busywork.',
     },
     description: {
-      zh: '如果你希望在 Mac 上把转写、精剪、增强与导出压缩成一条更短的路径，Cliptate 就是这条工作流的起点。',
-      en: 'If you want the Mac workflow for transcription, trimming, enhancement, and export to feel dramatically shorter, this is where it begins.',
+      zh: '在 Mac 上把从听写到导出的全流程压缩到 Cliptate。',
+      en: 'Compress your entire Mac workflow — dictation to export — into one app.',
     },
     primaryCta: {
       zh: '打开 App Store',

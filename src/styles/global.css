@@ -580,6 +580,89 @@ a:focus-visible {
   gap: 16px;
 }
 
+/* ─── Voice Section ───────────────────────────────────────── */
+
+.voice-dual {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.voice-panel {
+  display: grid;
+  gap: 0;
+  align-content: start;
+  padding: 32px;
+}
+
+.voice-panel-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.voice-panel-icon-wrap {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.voice-panel-heading {
+  margin: 6px 0 0;
+  font-size: 1.35rem;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+}
+
+.voice-panel-desc {
+  margin-bottom: 26px;
+}
+
+.tts-mode-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.tts-mode-card {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.tts-mode-code {
+  display: block;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.tts-mode-title {
+  margin: 0 0 6px;
+  font-size: 0.98rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.tts-mode-body {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
 /* ─── Hero Visual ─────────────────────────────────────────── */
 
 .hero-visual {
@@ -808,7 +891,8 @@ a:focus-visible {
   .proof-strip,
   .workflow-grid,
   .scenario-grid,
-  .dual-panel {
+  .dual-panel,
+  .voice-dual {
     grid-template-columns: 1fr;
   }
 
@@ -909,6 +993,14 @@ a:focus-visible {
 
   .feature-grid {
     grid-template-columns: 1fr;
+  }
+
+  .tts-mode-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .voice-panel {
+    padding: 24px;
   }
 }
 
