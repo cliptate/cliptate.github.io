@@ -4,7 +4,7 @@ export type LocalizedString = {
 };
 
 export const siteData = {
-  appStoreUrl: 'https://apps.apple.com/',
+  appStoreUrl: 'https://apps.apple.com/cn/app/%E5%89%AA%E8%A8%80-cliptate/id6754441004?mt=12',
   githubUrl: 'https://github.com/cliptate',
   meta: {
     title: {
