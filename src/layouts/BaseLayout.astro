@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import type { LocalizedString } from '../data/site';
+import { defaultLanguage, languages, languageStorageKey } from '../data/languages';
 
 interface Props {
   title: LocalizedString;
@@ -9,15 +10,33 @@ interface Props {
 
 const { title, description } = Astro.props;
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : Astro.url.toString();
-const pageTitle = `${title.en} | Cliptate`;
-const pageDescription = description.en;
+const pageTitle = title[defaultLanguage];
+const pageDescription = description[defaultLanguage];
+const htmlLang = languages.find(({ code }) => code === defaultLanguage)!.htmlLang;
 ---
 
 <!doctype html>
-<html lang="zh-CN" data-lang="zh">
+<html lang={htmlLang} data-lang={defaultLanguage}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script is:inline define:vars={{ languageConfig: { languages, defaultLanguage, languageStorageKey } }}>
+      // Select before the page paints so returning visitors don't see the default language flash.
+      (() => {
+        const { languages, defaultLanguage, languageStorageKey } = languageConfig;
+        let saved;
+        try {
+          saved = localStorage.getItem(languageStorageKey);
+        } catch {}
+        const preferred = languages.find(({ code }) => code === saved)
+          ?? (navigator.languages || [navigator.language])
+            .map((language) => languages.find(({ code }) => code === language.toLowerCase().split('-')[0]))
+            .find(Boolean)
+          ?? languages.find(({ code }) => code === defaultLanguage);
+        document.documentElement.dataset.lang = preferred.code;
+        document.documentElement.lang = preferred.htmlLang;
+      })();
+    </script>
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={pageDescription} />
     <link rel="canonical" href={canonical} />

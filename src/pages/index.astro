@@ -16,7 +16,7 @@ import { siteData } from '../data/site';
         <span class="brand-wordmark">Cliptate</span>
       </a>
 
-      <nav class="top-nav" aria-label="Primary">
+      <nav class="top-nav" data-localized-label="navigation" aria-label={siteData.ui.navigation.zh}>
         {
           siteData.nav.map((item) => (
             <a href={item.href}>
@@ -67,7 +67,7 @@ import { siteData } from '../data/site';
           </a>
         </div>
 
-        <div class="pill-row" aria-label="Highlights">
+        <div class="pill-row" data-localized-label="highlights" aria-label={siteData.ui.highlights.zh}>
           {
             siteData.hero.pills.map((pill) => (
               <span class="pill">
@@ -81,7 +81,7 @@ import { siteData } from '../data/site';
       <HeroVisual />
     </section>
 
-    <section class="section proof-strip" aria-label="Key differentiators">
+    <section class="section proof-strip" data-localized-label="differentiators" aria-label={siteData.ui.differentiators.zh}>
       {
         siteData.proof.items.map((item) => (
           <article class="proof-card">

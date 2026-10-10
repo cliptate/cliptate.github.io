@@ -1,42 +1,47 @@
-<div class="language-toggle" data-language-toggle>
-  <button type="button" data-lang-button="zh" aria-pressed="true">中文</button>
-  <button type="button" data-lang-button="en" aria-pressed="false">EN</button>
+---
+import { defaultLanguage, languageLabels, languages } from '../data/languages';
+---
+
+<div class="language-toggle" data-language-toggle role="group" aria-label={languageLabels[defaultLanguage]}>
+  {languages.map(({ code, label, htmlLang }) => (
+    <button type="button" data-lang-button={code} lang={htmlLang} aria-pressed={code === defaultLanguage ? 'true' : 'false'}>
+      {label}
+    </button>
+  ))}
 </div>
 
-<script is:inline>
-  const storageKey = 'cliptate-language';
+<script>
+  import { defaultLanguage, languageLabels, languages, languageStorageKey } from '../data/languages';
+  import { siteData } from '../data/site';
 
-  function applyLanguage(language) {
-    const lang = language === 'en' ? 'en' : 'zh';
+  function applyLanguage(language: string | undefined) {
+    const selected = languages.find(({ code }) => code === language)
+      ?? languages.find(({ code }) => code === defaultLanguage)!;
+    const lang = selected.code;
     document.documentElement.dataset.lang = lang;
-    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+    document.documentElement.lang = selected.htmlLang;
+    document.title = siteData.meta.title[lang];
 
-    document.querySelectorAll('[data-lang-button]').forEach((button) => {
-      button.setAttribute('aria-pressed', button.dataset.langButton === lang ? 'true' : 'false');
+    document.querySelectorAll<HTMLButtonElement>('[data-lang-button]').forEach((button) => {
+      button.setAttribute('aria-pressed', String(button.dataset.langButton === lang));
     });
-
-    try {
-      localStorage.setItem(storageKey, lang);
-    } catch {}
-  }
-
-  function initLanguageToggle() {
-    let preferred = 'zh';
-
-    try {
-      preferred = localStorage.getItem(storageKey) || preferred;
-    } catch {}
-
-    applyLanguage(preferred);
-
-    document.querySelectorAll('[data-lang-button]').forEach((button) => {
-      button.addEventListener('click', () => applyLanguage(button.dataset.langButton || 'zh'));
+    document.querySelector('[data-language-toggle]')?.setAttribute('aria-label', languageLabels[lang]);
+    Object.entries(siteData.ui).forEach(([key, labels]) => {
+      document.querySelector(`[data-localized-label="${key}"]`)?.setAttribute('aria-label', labels[lang]);
     });
+    document.querySelector<HTMLMetaElement>('meta[name="description"]')?.setAttribute('content', siteData.meta.description[lang]);
+    document.querySelector<HTMLMetaElement>('meta[property="og:title"]')?.setAttribute('content', siteData.meta.title[lang]);
+    document.querySelector<HTMLMetaElement>('meta[property="og:description"]')?.setAttribute('content', siteData.meta.description[lang]);
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initLanguageToggle, { once: true });
-  } else {
-    initLanguageToggle();
-  }
+  applyLanguage(document.documentElement.dataset.lang);
+
+  document.querySelectorAll<HTMLButtonElement>('[data-lang-button]').forEach((button) => {
+    button.addEventListener('click', () => {
+      applyLanguage(button.dataset.langButton);
+      try {
+        localStorage.setItem(languageStorageKey, document.documentElement.dataset.lang!);
+      } catch {}
+    });
+  });
 </script>

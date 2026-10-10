@@ -1,5 +1,6 @@
 ---
 import type { LocalizedString } from '../data/site';
+import { languages } from '../data/languages';
 
 type Props = {
   value: LocalizedString;
@@ -12,6 +13,5 @@ const Tag = as;
 ---
 
 <Tag class={className}>
-  <span data-locale="zh">{value.zh}</span>
-  <span data-locale="en">{value.en}</span>
+  {languages.map(({ code, htmlLang }) => <span data-locale={code} lang={htmlLang}>{value[code]}</span>)}
 </Tag>
