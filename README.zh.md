@@ -77,12 +77,21 @@ npm run preview
 
 构建输出在 dist/。main 分支推送后，.github/workflows/deploy.yml 会构建并发布到 GitHub Pages。
 
+## 文章与竞品对比
+
+`/blog/` 汇总 Cliptate 与 Wispr Flow、MacWhisper、Descript 的对比。每篇包含工作流差异、版本说明、试用建议及带核对日期的官方来源，提供五种语言。首页的简洁入口与导航可进入文章。`/guide/` 集中提供安装、模型、CLI 示例和常见问题，让首页聚焦产品介绍。
+
 ## 内容维护
 
 修改功能描述前，核对应用源码、docs/development.md、docs/cli.md 和版本说明。同步更新五种语言，区分本地语音与可选在线 AI、GitHub 与 App Store 渠道、界面与 CLI 输出，以及已发布与最新源码中的能力。
 
 - src/data/site.ts
 - src/data/guide.ts
+- src/data/blog.ts
+- src/pages/blog/
+- src/pages/guide/
+- src/components/SiteHeader.astro
+- src/styles/editorial.css
 - src/pages/index.astro
 - src/components/LanguageToggle.astro
 - public/assets/screenshots/

@@ -77,12 +77,21 @@ npm run preview
 
 ビルド出力は dist/。main への push で .github/workflows/deploy.yml がビルドし、GitHub Pages に公開します。
 
+## 記事とツール比較
+
+`/blog/` に Cliptate と Wispr Flow、MacWhisper、Descript の比較を掲載。各記事は作業手順、配布版の違い、試用の提案、確認日付きの公式資料を五つの言語で提供します。ホームの簡潔なリンクとナビゲーションから開けます。`/guide/` にインストール、モデル、CLI の例、よくある質問をまとめ、ホームは製品の紹介に集中します。
+
 ## コンテンツ管理
 
 機能の説明を変更する前に、アプリのソース、docs/development.md、docs/cli.md、リリースノートを確認。5 言語を更新し、ローカル音声とオンライン AI、GitHub と App Store、GUI と CLI、公開済みと最新ソースの機能を区別してください。
 
 - src/data/site.ts
 - src/data/guide.ts
+- src/data/blog.ts
+- src/pages/blog/
+- src/pages/guide/
+- src/components/SiteHeader.astro
+- src/styles/editorial.css
 - src/pages/index.astro
 - src/components/LanguageToggle.astro
 - public/assets/screenshots/

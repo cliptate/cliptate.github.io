@@ -77,12 +77,21 @@ npm run preview
 
 Build output is in dist/. Pushes to main trigger .github/workflows/deploy.yml to build and publish to GitHub Pages.
 
+## Articles and comparisons
+
+The `/blog/` index covers Cliptate vs Wispr Flow, MacWhisper, and Descript. Each article includes a workflow comparison, edition differences, a practical trial, and dated official sources in all five languages. A compact homepage entry and navigation link to the articles. `/guide/` holds installation details, models, CLI examples, and common questions, leaving the homepage focused on the product.
+
 ## Content maintenance
 
 Before changing claims, check the app source, docs/development.md, docs/cli.md, and release notes. Update all five languages. Distinguish local speech from optional online AI, GitHub from App Store builds, GUI from CLI exports, and released features from latest-source additions.
 
 - src/data/site.ts
 - src/data/guide.ts
+- src/data/blog.ts
+- src/pages/blog/
+- src/pages/guide/
+- src/components/SiteHeader.astro
+- src/styles/editorial.css
 - src/pages/index.astro
 - src/components/LanguageToggle.astro
 - public/assets/screenshots/

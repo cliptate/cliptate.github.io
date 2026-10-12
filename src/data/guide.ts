@@ -3,6 +3,17 @@ import type { LocalizedString } from './languages';
 const l = (zh: string, en: string, ja: string, ko: string, de: string): LocalizedString => ({ zh, en, ja, ko, de });
 
 export const guide = {
+  page: {
+    title: l('从安装到第一份字幕。', 'From installation to your first captions.', 'インストールから最初の字幕まで。', '설치부터 첫 자막까지.', 'Von der Installation zu den ersten Untertiteln.'),
+    metaTitle: l('使用指南：安装、模型与 CLI | Cliptate', 'User guide: installation, models & CLI | Cliptate', '使い方：インストール、モデル、CLI | Cliptate', '사용 가이드: 설치, 모델과 CLI | Cliptate', 'Anleitung: Installation, Modelle & CLI | Cliptate'),
+    description: l('选择发行版本，准备本地模型，再把 Cliptate 接入你的日常工作流。安装步骤、命令行示例和常见问题都在这里。', 'Choose an edition, prepare local models, and bring Cliptate into your workflow. Installation steps, CLI examples, and common questions in one place.', '配布版を選び、ローカルモデルを準備して、いつもの作業に Cliptate を取り入れましょう。インストール手順、CLI の例、よくある質問をまとめました。', '버전을 선택하고 로컬 모델을 준비해 Cliptate를 일상 작업에 연결하세요. 설치 단계, CLI 예제와 자주 묻는 질문을 모았습니다.', 'Eine Version wählen, lokale Modelle vorbereiten und Cliptate in den Arbeitsablauf integrieren. Installation, CLI-Beispiele und häufige Fragen an einem Ort.'),
+    contents: l('本页内容', 'On this page', 'このページの内容', '이 페이지의 내용', 'Auf dieser Seite'),
+    install: l('安装与上手', 'Installation', 'インストール', '설치와 시작', 'Installation'),
+    models: l('模型与设置', 'Models & settings', 'モデルと設定', '모델과 설정', 'Modelle & Einstellungen'),
+    cli: l('命令行', 'Command line', 'コマンドライン', '명령줄', 'Kommandozeile'),
+    faq: l('常见问题', 'Common questions', 'よくある質問', '자주 묻는 질문', 'Häufige Fragen'),
+    read: l('查看安装与使用指南', 'Read the setup & user guide', 'インストールと使い方を見る', '설치 및 사용 가이드 보기', 'Installation und Anleitung lesen'),
+  },
   releasesUrl: 'https://github.com/cliptate/cliptate/releases',
   nightlyUrl: 'https://github.com/cliptate/cliptate/releases/tag/nightly',
   cliUrl: 'https://github.com/cliptate/cliptate/blob/main/docs/cli.md',

@@ -1,0 +1,20 @@
+---
+import LocalizedText from './LocalizedText.astro';
+import { articles, blog, type ComparisonArticle } from '../data/blog';
+interface Props { items?: ComparisonArticle[] }
+const { items = articles } = Astro.props;
+---
+
+<div class="comparison-grid">
+  {items.map((article) => (
+    <a class="comparison-card glass-panel" href={`/blog/${article.slug}/`}>
+      <p class="eyebrow"><LocalizedText value={article.tag} /></p>
+      <div class="comparison-pair" aria-hidden="true">
+        <span>Cliptate</span><span class="comparison-versus">vs</span><span>{article.competitor}</span>
+      </div>
+      <h3><LocalizedText value={article.title} /></h3>
+      <p class="lede"><LocalizedText value={article.description} /></p>
+      <span class="comparison-read"><LocalizedText value={blog.read} /><span aria-hidden="true">↗</span></span>
+    </a>
+  ))}
+</div>

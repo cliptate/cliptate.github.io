@@ -1,0 +1,23 @@
+---
+import LanguageToggle from './LanguageToggle.astro';
+import LocalizedText from './LocalizedText.astro';
+import { siteData } from '../data/site';
+const isHome = Astro.url.pathname === '/';
+---
+
+<header class="site-header">
+  <a class="brand" href={isHome ? '#top' : '/'} aria-label="Cliptate">
+    <img class="brand-icon" src="/assets/app-icon.png" alt="" width="28" height="28" aria-hidden="true" />
+    <span class="brand-wordmark">Cliptate</span>
+  </a>
+  <nav class="top-nav" data-localized-label="navigation" aria-label={siteData.ui.navigation.zh}>
+    {siteData.nav.map((item) => (
+      <a
+        href={item.href.startsWith('#') && !isHome ? `/${item.href}` : item.href}
+        class:list={{ 'nav-download': item.href === '#download' }}
+        aria-current={item.href.startsWith('/') && Astro.url.pathname.startsWith(item.href) ? 'true' : undefined}
+      ><LocalizedText value={item.label} /></a>
+    ))}
+  </nav>
+  <div class="header-actions"><LanguageToggle /></div>
+</header>

@@ -77,12 +77,21 @@ npm run preview
 
 Build-Ausgabe liegt in dist/. Pushes auf main lösen .github/workflows/deploy.yml zum Bauen und Veröffentlichen auf GitHub Pages aus.
 
+## Artikel und Vergleiche
+
+Unter `/blog/` stehen Vergleiche von Cliptate mit Wispr Flow, MacWhisper und Descript. Jeder Artikel enthält Arbeitsabläufe, Versionsunterschiede, einen praktischen Testvorschlag und datierte offizielle Quellen in allen fünf Sprachen. Ein kompakter Einstieg und die Navigation führen zu den Artikeln. `/guide/` bündelt Installation, Modelle, CLI-Beispiele und häufige Fragen; die Startseite konzentriert sich auf das Produkt.
+
 ## Inhaltspflege
 
 Vor Änderungen App-Quellcode, docs/development.md, docs/cli.md und Versionshinweise prüfen. Alle fünf Sprachen aktualisieren; lokale Sprachfunktionen und Online-KI, GitHub und App Store, GUI und CLI sowie veröffentlichte und neue Quellcode-Funktionen unterscheiden.
 
 - src/data/site.ts
 - src/data/guide.ts
+- src/data/blog.ts
+- src/pages/blog/
+- src/pages/guide/
+- src/components/SiteHeader.astro
+- src/styles/editorial.css
 - src/pages/index.astro
 - src/components/LanguageToggle.astro
 - public/assets/screenshots/

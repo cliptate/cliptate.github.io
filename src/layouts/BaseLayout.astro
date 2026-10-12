@@ -1,14 +1,16 @@
 ---
 import '../styles/global.css';
+import '../styles/editorial.css';
 import type { LocalizedString } from '../data/site';
 import { defaultLanguage, languages, languageStorageKey } from '../data/languages';
 
 interface Props {
   title: LocalizedString;
   description: LocalizedString;
+  type?: 'website' | 'article';
 }
 
-const { title, description } = Astro.props;
+const { title, description, type = 'website' } = Astro.props;
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : Astro.url.toString();
 const pageTitle = title[defaultLanguage];
 const pageDescription = description[defaultLanguage];
@@ -43,10 +45,11 @@ const htmlLang = languages.find(({ code }) => code === defaultLanguage)!.htmlLan
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={pageDescription} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={type} />
     <meta property="og:url" content={canonical} />
     <meta name="twitter:card" content="summary_large_image" />
     <title>{pageTitle}</title>
+    <script id="page-localization" type="application/json" is:inline set:html={JSON.stringify({ title, description }).replace(/</g, '\\u003c')} />
   </head>
   <body>
     <slot />
