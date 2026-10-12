@@ -1,150 +1,90 @@
-<div align="center">
-  <img src="https://cliptate.github.io/assets/app-icon.png" width="120" alt="Cliptate App-Icon" />
-  <h1>Cliptate</h1>
-  <p><strong>Der KI-Arbeitsbereich auf dem Gerät für Mac-Audio- und Videoersteller</strong></p>
+# Cliptate
 
-  <p>
-    <a href="https://apps.apple.com/cn/app/%E5%89%AA%E8%A8%80-cliptate/id6754441004?mt=12"><img alt="Im App Store laden" src="https://img.shields.io/badge/App%20Store-Laden-0066cc?logo=apple&logoColor=white&style=flat-square" /></a>
-    <img alt="macOS 14+" src="https://img.shields.io/badge/macOS-14%2B-000000?logo=apple&logoColor=white&style=flat-square" />
-    <img alt="Apple Silicon" src="https://img.shields.io/badge/Apple%20Silicon-MLX-ff6900?style=flat-square" />
-    <img alt="Swift" src="https://img.shields.io/badge/Swift-5.10-f05138?logo=swift&logoColor=white&style=flat-square" />
-    <img alt="100% Lokal" src="https://img.shields.io/badge/Verarbeitung-100%25%20Lokal-22c55e?style=flat-square" />
-  </p>
+[English](README.md) · [中文](README.zh.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Deutsch](README.de.md)
 
-  <p>
-    <a href="https://cliptate.github.io">Website</a> ·
-    <a href="https://cliptate.github.io#features">Funktionen</a> ·
-    <a href="https://cliptate.github.io#voice">Sprache & TTS</a> ·
-    <a href="https://apps.apple.com/cn/app/%E5%89%AA%E8%A8%80-cliptate/id6754441004?mt=12">Download</a>
-  </p>
+Quellcode der [Cliptate-Website](https://cliptate.github.io). Die macOS-App liegt in [cliptate/cliptate](https://github.com/cliptate/cliptate). Die Inhalte folgen dem main-Zweig der App; Funktionen der Installationspakete hängen vom jeweiligen Release ab.
 
-  <p>
-    <a href="README.md">English</a> ·
-    <a href="README.zh.md">中文</a> ·
-    <a href="README.ja.md">日本語</a> ·
-    <a href="README.ko.md">한국어</a> ·
-    <a href="README.de.md">Deutsch</a>
-  </p>
-</div>
+Transkribieren, Pausen schneiden, Untertitel bearbeiten und Sprache am Mac erzeugen. KI-Korrektur und Übersetzung bei Bedarf aktivieren. Die kostenlose GitHub-Version bietet alle Modelle, Pro-Funktionen und eine CLI.
 
----
+## Kernfunktionen
 
-Cliptate ist eine native macOS-App, die die zeitaufwändigsten Schritte in der Audio- und Videoproduktion in einen durchgehenden, vollständig lokalen Workflow zusammenführt. Kein Cloud-Upload, keine API-Schlüssel, keine Netzwerkwartezeiten — alle Modelle laufen auf Ihrem Mac.
+- **Präzise, bearbeitbare Untertitel** — Parakeet, Qwen3 ASR, FireRed oder Cohere für lokale Audio- und Videotranskription wählen. Fachbegriffe im eigenen Wörterbuch ergänzen.
+- **Pausen gesammelt entfernen, Rohschnitte schneller erstellen** — Stille automatisch erkennen und unnötige Pausen aus Podcasts, Interviews und Aufnahmen entfernen.
+- **Sprecher automatisch erkennen und Dialoge zuordnen** — Sortformer unterscheidet Sprecher in unterstützten Transkriptionsabläufen. Silero VAD erkennt Sprachaktivität und erleichtert die Aufbereitung von Interviews und Meetings.
+- **Von Erzählstimmen bis zum eigenen Stimmdesign** — Qwen3 TTS bietet voreingestellte Stimmen, Klonen per Referenzaudio, Emotionssteuerung und Stimmdesign. Die verfügbaren Funktionen hängen vom Modell ab.
+- **Transkripte korrigieren und zweisprachige Untertitel erstellen** — KI-Anbieter und API-Schlüssel für Korrektur und Stichwortbetonung konfigurieren, auch mit eigenen OpenAI-kompatiblen Endpunkten. Apple Translation übersetzt Untertitel für unterstützte Sprachpaare.
+- **Sprechvideos mit Rhythmus und Akzenten gestalten** — Füllwortfilter, Skalierung und Zoom einstellen. Highlights mit dem konfigurierten KI-Anbieter finden; Untertitelstile für Quer- und Hochformat sowie die Übersetzungsposition wählen.
 
----
+## Download und Installation
 
-## Funktionen
+Erfordert Apple Silicon (M1 oder neuer) und macOS 15 oder neuer. Modellgrößen und RAM-Anforderungen variieren; ausreichend Speicherplatz einplanen.
 
-### 🎙 Spracheingabe — Sprechen zum Tippen
+- **[Kostenlose GitHub-Version](https://github.com/cliptate/cliptate/releases)** — Alle Modelle und Pro-Funktionen kostenlos, ohne Abo. Mit nativer CLI, Updates in der App und Texteingabe sowie globalen Tastaturkürzeln nach erteilter Berechtigung. Online-KI-Anbieter berechnen separat.
+- **[App-Store-Version](https://apps.apple.com/cn/app/%E5%89%AA%E8%A8%80-cliptate/id6754441004?mt=12)** — App-Store-Versionen verwenden Abos und Sandbox-Einschränkungen, ohne CLI. Diktierter Text wird kopiert und eingefügt; Tastaturkürzel sind eingeschränkt. Funktionen und Preise im Store prüfen.
+- **[Nightly-Vorabversionen](https://github.com/cliptate/cliptate/releases/tag/nightly)** — Nightly-Versionen folgen regelmäßig main und können unveröffentlichte Änderungen enthalten. Enthaltene Funktionen in den jeweiligen Hinweisen prüfen.
 
-Echtzeit-Sprach-zu-Text-Streaming, das wie eine Eingabemethode funktioniert. Mit einem globalen Tastaturkürzel aus jeder App aufrufbar — sprechen Sie einfach, und bearbeitbarer Text wird sofort erzeugt.
+1. Cliptate.dmg aus einem Release laden und die App in Programme ziehen. Mit der zugehörigen SHA-256-Datei den Download prüfen.
+2. App öffnen und Modelle wählen und laden. Mikrofon für Diktate und Bedienungshilfen für automatische Texteingabe erlauben.
+3. Medien zum Transkribieren importieren. CLI vorher installieren und Cliptate nach einem Austausch der App neu starten.
 
-- Streaming-Transkription mit minimaler Latenz
-- Automatische Mehrsprechererkennung und -beschriftung
-- Benutzerdefiniertes Wörterbuch für domänenspezifische Genauigkeit
-- Globales Tastaturkürzel zum sofortigen Aufrufen oder Pausieren
+## Native CLI · GitHub-Version
 
-### 📝 Offline-Transkription
+Die CLI nutzt Modelle, Sprache und Wörterbuch der App und startet Cliptate bei Bedarf im Hintergrund. Installationsbefehl unter Einstellungen → Kommandozeile kopieren und ~/.local/bin zum PATH hinzufügen.
 
-Batch-Transkription von Audio- und Videodateien vollständig auf dem Gerät. Unterstützt mehrere ASR-Engines (Parakeet, Qwen3, FireRed ASR) und Apple-Silicon-optimierte MLX-Inferenz für präzise Untertitel — ohne Audioübertragung an Server.
+```sh
+cliptate transcribe interview.mp4 --format json
+cliptate transcribe a.wav b.mp4 --format vtt --output-dir subtitles
+cliptate tts --text-file narration.txt -o narration.wav --download
+cliptate dictionary add "Cliptate"
+cliptate dictionary import words.txt
+```
 
-### ✂️ Intelligentes Pausen-Trimming
+Transkription akzeptiert lokale Dateien und gibt text, JSON, Markdown, SRT oder VTT aus. CLI-Anfragen erstellen keine Projekte oder Verlaufseinträge; jeweils ein Transkriptions- oder Spracherzeugungsauftrag läuft. TTS ist im aktuellen Quellcode enthalten: eine passende Version verwenden. Ältere Versionen mit cliptate --help prüfen.
 
-VAD-basierte Stille-Erkennung identifiziert und entfernt überflüssige Pausen in Podcasts, Interviews und Kursaufnahmen automatisch. Der Rohschnitt kommt der Auslieferungsreife erheblich näher.
+[Vollständige CLI-Anleitung](https://github.com/cliptate/cliptate/blob/main/docs/cli.md)
 
-### 👥 Sprecher-Diarisierung
+## Datenschutz und Leistung
 
-Erkennt und beschriftet mehrere Sprecher in einer Aufnahme automatisch. Sortformer- und Silero-VAD-Modelle laufen auf dem Gerät und erzeugen strukturierte, sprecherzugeordnete Transkripte für Interviews, Panels und Meetings.
+Transkription, Stille-Erkennung, Sprecherzuordnung und TTS laufen am Mac. Online-KI sendet relevante Texte und ausgewählte Kontextdaten an den konfigurierten Dienst.
 
-### 🔊 TTS-Sprachsynthese — Vier Modi
+- Lokale Sprachinferenz benötigt weder Medien-Upload noch KI-API-Schlüssel.
+- Modell-Downloads benötigen Internet; nach dem Zwischenspeichern funktionieren lokale Sprachfunktionen offline.
+- KI-Korrektur, Stichwortbetonung und Diktatverbesserung nutzen Ihren Anbieter; Online-Dienste können separate Kosten verursachen.
+- Für sensible Inhalte lokale Sprachfunktionen und Apple Translation nutzen; Sprachpakete müssen gegebenenfalls zuerst geladen werden.
 
-| Modus | Beschreibung |
-|---|---|
-| **Preset-Stimmen** | Integrierte mehrsprachige Stimmen, sofort einsatzbereit |
-| **Stimm-Klon** | Referenzaudio hochladen und Klang sowie Rhythmus des Sprechers reproduzieren |
-| **Emotionssteuerung** | Emotion und Sprechstil einer benannten Stimme per Textprompt steuern |
-| **Stimmdesign** | Stimmeigenschaften per Text beschreiben und eine völlig originelle Persona synthetisieren |
+## Professioneller Export
 
-Alle TTS-Inferenz läuft via MLX auf dem Gerät. Kein Audio wird in die Cloud gesendet.
+AI Cut exportiert Timelines, Untertitel, Audio und Video. Die CLI bietet zusätzlich JSON, Markdown und VTT für Automatisierungen.
 
-### 🌐 KI-Korrektur & Übersetzung
+- **FCPXML** — Austausch von Timeline-Projekten
+- **SRT** — Universelles Untertitelformat
+- **ASS** — Gestaltete Untertitel
+- **TXT** — Transkript mit Zeitstempeln
 
-Kontextsensitive Transkriptkorrektur, gefolgt von mehrsprachiger Ausgabe — auf dem Gerät oder über Apple Übersetzer. Erstellen Sie Inhalte für ein globales Publikum, ohne das Tool zu wechseln.
+FCPXML für Final Cut Pro mit Resolve-Kompatibilitätsoption. Untertitel in den vom Editor unterstützten Formaten importieren. Video: MP4 / MOV / M4V. Audio: M4A / WAV.
 
-### ⭐ Highlight-Erkennung
+## Website-Entwicklung
 
-Erkennt automatisch die wichtigsten Sätze und bemerkenswertesten Momente einer Aufnahme und markiert sie auf der Timeline — damit Schnitt und Veröffentlichung schneller vorankommen.
+Erstellt mit Astro, TypeScript und Tailwind CSS. Erfordert Node.js 22.12 oder neuer.
 
----
+```sh
+npm ci
+npm run dev
+npm run check
+npm run build
+npm run preview
+```
 
-## Exportformate
+Build-Ausgabe liegt in dist/. Pushes auf main lösen .github/workflows/deploy.yml zum Bauen und Veröffentlichen auf GitHub Pages aus.
 
-Cliptate exportiert direkt in die Tools, die Sie bereits verwenden:
+## Inhaltspflege
 
-| Format | Verwendung |
-|---|---|
-| **FCPXML** | Final Cut Pro Timeline-Projektaustausch |
-| **SRT** | Universelle Untertitellieferung |
-| **ASS** | Gestaltete Untertitel mit Positionierung |
-| **VTT** | Web-Untertitel für Browser und Streaming-Plattformen |
+Vor Änderungen App-Quellcode, docs/development.md, docs/cli.md und Versionshinweise prüfen. Alle fünf Sprachen aktualisieren; lokale Sprachfunktionen und Online-KI, GitHub und App Store, GUI und CLI sowie veröffentlichte und neue Quellcode-Funktionen unterscheiden.
 
-Kompatibel mit **Final Cut Pro**, **DaVinci Resolve** und **Adobe Premiere Pro**.
+- src/data/site.ts
+- src/data/guide.ts
+- src/pages/index.astro
+- src/components/LanguageToggle.astro
+- public/assets/screenshots/
 
----
-
-## Datenschutz & Sicherheit
-
-- **Kein Cloud-Upload** — Audio, Video und Transkripte verlassen Ihren Mac nicht
-- **Keine API-Schlüssel erforderlich** — alle Modelle sind in der App enthalten oder werden beim ersten Start heruntergeladen
-- **Keine Netzwerkabhängigkeit** — funktioniert vollständig offline, sobald Modelle gecacht sind
-- Geeignet für sensible, vertrauliche und compliance-relevante Inhalte
-
----
-
-## Systemanforderungen
-
-| | |
-|---|---|
-| **Plattform** | macOS 14 Sonoma oder neuer |
-| **Architektur** | Apple Silicon (M1 und neuer) empfohlen |
-| **Speicher** | Abhängig von der Modellauswahl (vollständiges Modell-Set: 2–8 GB) |
-
----
-
-## Technologie-Stack
-
-Cliptate ist vollständig in Swift geschrieben und basiert auf Apple-nativen Frameworks:
-
-- **[MLX Swift](https://github.com/ml-explore/mlx-swift)** — Apple-Silicon-optimiertes ML-Framework für ASR- und TTS-Inferenz
-- **[AudioKit](https://github.com/AudioKit/AudioKit)** — Audioverarbeitung und Wellenform-Rendering
-- **[mlx-audio-swift](https://github.com/ml-explore/mlx-audio-swift)** — VAD-, ASR- und TTS-Modellintegration
-- **Apple Übersetzer** — Mehrsprachige Übersetzung auf dem Gerät
-- **KeyboardShortcuts** — Globale Tastaturkürzel-Verwaltung
-- **RevenueCat** — Abonnement- und Paywall-Management
-- **SwiftAssRenderer** — ASS-Untertitel-Rendering
-
----
-
-## Anwendungsfälle
-
-**Podcaster & Interviewer** — Pausen kürzen, Untertitel generieren und veröffentlichungsfähige Momente markieren — alles in einer App.
-
-**Vlog- & Kurzvideoersteller** — Talking-Head-Schnitte flüssiger gestalten und den Fokus auf Rhythmus und Ausdruck legen.
-
-**Kursersteller & Meeting-Protokollanten** — Stunden an Live- oder Aufnahmeaudio per Diktat oder Batch-Transkription in durchsuchbare, übersetzbare und lieferbare Textressourcen verwandeln.
-
-**Mehrsprachige Content-Teams** — Stimme klonen, Transkript übersetzen, Synchronfassungen erstellen — alles auf einem Mac.
-
----
-
-## Links
-
-- **Website:** [cliptate.github.io](https://cliptate.github.io)
-- **App Store:** [Cliptate laden](https://apps.apple.com/cn/app/%E5%89%AA%E8%A8%80-cliptate/id6754441004?mt=12)
-- **Probleme & Feedback:** [GitHub Issues](https://github.com/cliptate/cliptate.github.io/issues)
-
----
-
-<div align="center">
-  <sub>Entwickelt für Kreative, denen Datenschutz, Geschwindigkeit und professionelle Ausgabe wichtig sind.</sub>
-</div>
+[Anleitung](https://github.com/cliptate/cliptate#readme) · [Versionshinweise](https://github.com/cliptate/cliptate/tree/main/docs/release-notes) · [Probleme und Feedback](https://github.com/cliptate/cliptate/issues)

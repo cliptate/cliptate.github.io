@@ -1,151 +1,90 @@
-<div align="center">
-  <img src="https://cliptate.github.io/assets/app-icon.png" width="120" alt="Cliptate app icon" />
-  <h1>Cliptate</h1>
-  <p><strong>On-device AI workspace for Mac audio and video creators</strong></p>
-  <p>面向 Mac 音视频创作者的端侧 AI 工作台</p>
+# Cliptate
 
-  <p>
-    <a href="https://apps.apple.com/cn/app/%E5%89%AA%E8%A8%80-cliptate/id6754441004?mt=12"><img alt="Download on the App Store" src="https://img.shields.io/badge/App%20Store-Download-0066cc?logo=apple&logoColor=white&style=flat-square" /></a>
-    <img alt="macOS 14+" src="https://img.shields.io/badge/macOS-14%2B-000000?logo=apple&logoColor=white&style=flat-square" />
-    <img alt="Apple Silicon" src="https://img.shields.io/badge/Apple%20Silicon-MLX-ff6900?style=flat-square" />
-    <img alt="Swift" src="https://img.shields.io/badge/Swift-5.10-f05138?logo=swift&logoColor=white&style=flat-square" />
-    <img alt="100% On-Device" src="https://img.shields.io/badge/Processing-100%25%20Local-22c55e?style=flat-square" />
-  </p>
+[English](README.md) · [中文](README.zh.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Deutsch](README.de.md)
 
-  <p>
-    <a href="https://cliptate.github.io">Website</a> ·
-    <a href="https://cliptate.github.io#features">Features</a> ·
-    <a href="https://cliptate.github.io#voice">Voice & TTS</a> ·
-    <a href="https://apps.apple.com/cn/app/%E5%89%AA%E8%A8%80-cliptate/id6754441004?mt=12">Download</a>
-  </p>
+Source for the [Cliptate website](https://cliptate.github.io). The macOS application lives in [cliptate/cliptate](https://github.com/cliptate/cliptate). Website content follows the application’s main branch; packaged features depend on the chosen Release.
 
-  <p>
-    <a href="README.md">English</a> ·
-    <a href="README.zh.md">中文</a> ·
-    <a href="README.ja.md">日本語</a> ·
-    <a href="README.ko.md">한국어</a> ·
-    <a href="README.de.md">Deutsch</a>
-  </p>
-</div>
+Transcribe, trim pauses, edit captions, and synthesize speech on your Mac. Enable AI correction and translation when needed. The free GitHub build unlocks all models and Pro features, with a CLI for scripts.
 
----
+## Core capabilities
 
-Cliptate is a native macOS application that compresses the most time-consuming steps in audio and video production into one continuous, fully local workflow. No cloud upload, no API keys, no waiting on network round trips — every model runs on your Mac.
+- **Accurate, editable subtitle extraction** — Choose Parakeet, Qwen3 ASR, FireRed, or Cohere models for local audio/video transcription. Add custom vocabulary for specialist terms.
+- **Trim pauses in bulk and shape rough cuts faster** — Auto-detect silence and bulk-trim dead air from podcasts, interviews, and recordings.
+- **Auto-identify speakers and label dialogue** — Use Sortformer to distinguish speakers in supported transcription pipelines. Silero VAD detects speech activity, making interviews and meeting recordings easier to organize.
+- **From narration to original voices** — Qwen3 TTS offers preset voices, reference-audio cloning, emotion control, and voice design. Available controls depend on the selected model.
+- **Correct transcripts and create bilingual captions** — Configure an AI provider and API key for correction and keyword emphasis, including custom OpenAI-compatible endpoints. Apple Translation handles captions for supported language pairs.
+- **Give spoken content rhythm and emphasis** — Configure filler-word filtering, scaling, and zoom. Extract highlights with your configured AI provider, and set landscape/portrait caption styles and translation placement.
 
----
+## Download and install
 
-## Features
+Requires Apple Silicon (M1 or newer) and macOS 15 or later. Model downloads and memory requirements vary; allow enough storage for your selections.
 
-### 🎙 Voice Dictation — Speak to Type
+- **[Free GitHub build](https://github.com/cliptate/cliptate/releases)** — All models and Pro features are free, with no subscription. Includes the native CLI and in-app updates, plus Accessibility-backed text insertion and global shortcuts with permission. Online AI providers charge separately.
+- **[App Store build](https://apps.apple.com/cn/app/%E5%89%AA%E8%A8%80-cliptate/id6754441004?mt=12)** — App Store builds use subscriptions and sandbox restrictions and do not include the CLI. Dictated text uses copy and paste, with channel-specific shortcut restrictions. Check the store listing for features and pricing.
+- **[Nightly preview builds](https://github.com/cliptate/cliptate/releases/tag/nightly)** — Nightly builds track main periodically and may contain unreleased changes. Check each build’s notes for included features.
 
-Real-time streaming speech-to-text that works like an input method. Invoke it from any context with a global keyboard shortcut and get editable text as you speak.
+1. Download Cliptate.dmg from a Release and drag the app into Applications. Use its SHA-256 file to verify the download.
+2. Open the app and download selected models. Allow microphone access for dictation and Accessibility permission if you want automatic text insertion.
+3. Import media to start transcribing. Install the CLI before using it, and restart Cliptate after replacing the app during an upgrade.
 
-- Streaming transcription with minimal latency
-- Automatic multi-speaker diarization and labeling
-- Custom vocabulary dictionary for domain-specific accuracy
-- Global keyboard shortcut to invoke or pause anywhere
+## Native CLI · GitHub build
 
-### 📝 Offline Transcription
+The CLI shares the app’s models, language, and vocabulary, starting Cliptate in the background when needed. Copy the install command from Settings → Command Line and add ~/.local/bin to PATH.
 
-Batch-transcribe audio and video files entirely on-device. Supports multiple ASR engines (Parakeet, Qwen3, FireRed ASR) and Apple Silicon-optimized MLX inference for fast, accurate captions without sending audio to any server.
+```sh
+cliptate transcribe interview.mp4 --format json
+cliptate transcribe a.wav b.mp4 --format vtt --output-dir subtitles
+cliptate tts --text-file narration.txt -o narration.wav --download
+cliptate dictionary add "Cliptate"
+cliptate dictionary import words.txt
+```
 
-### ✂️ Smart Pause Trimming
+Transcription accepts local files and outputs text, JSON, Markdown, SRT, or VTT. CLI requests create no projects or history; one transcription or speech request runs at a time. TTS is in the latest source: use a build containing this feature. Check cliptate --help for commands in older builds.
 
-VAD-powered silence detection automatically identifies and removes dead air across podcasts, interviews, and course recordings. Rough cuts arrive closer to delivery-ready with minimal manual scrubbing.
+[Full CLI guide](https://github.com/cliptate/cliptate/blob/main/docs/cli.md)
 
-### 👥 Speaker Diarization
+## Privacy and performance
 
-Automatically identify and label multiple speakers across a recording. Sortformer and Silero VAD models run on-device to produce structured, speaker-attributed transcripts for interviews, panels, and meetings.
+Transcription, silence detection, diarization, and TTS run on your Mac. Online AI features send relevant text and any context you choose to the configured service.
 
-### 🔊 TTS Voice Synthesis — Four Modes
+- Local speech inference needs no media upload or AI API key.
+- Model downloads need internet access; local speech features work offline once cached.
+- AI correction, keyword emphasis, and dictation enhancement use your configured provider; online services may charge separately.
+- For sensitive content, use local speech features and Apple Translation; language packs may need downloading first.
 
-| Mode | Description |
-|---|---|
-| **Preset** | Built-in multilingual voices, ready instantly |
-| **Clone** | Upload reference audio to reproduce a speaker's timbre and cadence |
-| **Emotion Control** | Steer emotion and speaking style on a named speaker via text prompts |
-| **Voice Design** | Describe a voice in text to synthesize an entirely original persona |
+## Professional output
 
-All TTS inference runs on-device via MLX. No audio is sent to the cloud.
+AI Cut exports timelines, captions, audio, and video. The CLI also provides JSON, Markdown, and VTT for automation.
 
-### 🌐 AI Correction & Translation
+- **FCPXML** — Timeline project exchange
+- **SRT** — Universal subtitle delivery
+- **ASS** — Styled subtitle support
+- **TXT** — Timestamped transcript
 
-Context-aware transcript correction followed by on-device or Apple Translation-powered multilingual output. Produce subtitles and scripts in multiple languages without switching tools.
+FCPXML targets Final Cut Pro with a Resolve compatibility option. Import captions in formats your editor supports. Video: MP4 / MOV / M4V. Audio: M4A / WAV.
 
-### ⭐ Highlight Detection
+## Website development
 
-Automatically surface the strongest moments and key sentences from a recording and mark them on the timeline — so publishing edits move faster.
+Built with Astro, TypeScript, and Tailwind CSS. Requires Node.js 22.12 or later.
 
----
+```sh
+npm ci
+npm run dev
+npm run check
+npm run build
+npm run preview
+```
 
-## Export Formats
+Build output is in dist/. Pushes to main trigger .github/workflows/deploy.yml to build and publish to GitHub Pages.
 
-Cliptate exports directly into the tools you already use:
+## Content maintenance
 
-| Format | Use |
-|---|---|
-| **FCPXML** | Final Cut Pro timeline project exchange |
-| **SRT** | Universal subtitle delivery |
-| **ASS** | Styled subtitles with positioning and formatting |
-| **VTT** | Web captions for browsers and streaming platforms |
+Before changing claims, check the app source, docs/development.md, docs/cli.md, and release notes. Update all five languages. Distinguish local speech from optional online AI, GitHub from App Store builds, GUI from CLI exports, and released features from latest-source additions.
 
-Compatible with **Final Cut Pro**, **DaVinci Resolve**, and **Adobe Premiere Pro**.
+- src/data/site.ts
+- src/data/guide.ts
+- src/pages/index.astro
+- src/components/LanguageToggle.astro
+- public/assets/screenshots/
 
----
-
-## Privacy & Security
-
-- **Zero cloud upload** — audio, video, and transcripts never leave your Mac
-- **No API keys required** — all models ship with the app or download on first use
-- **No network dependency** — works fully offline once models are cached
-- Suitable for sensitive, confidential, and compliance-regulated content
-
----
-
-## Requirements
-
-| | |
-|---|---|
-| **Platform** | macOS 14 Sonoma or later |
-| **Architecture** | Apple Silicon (M1 and later) recommended |
-| **Storage** | Varies by model selection (2–8 GB for full model set) |
-
----
-
-## Tech Stack
-
-Cliptate is built entirely in Swift and runs on Apple-native frameworks:
-
-- **[MLX Swift](https://github.com/ml-explore/mlx-swift)** — Apple Silicon-optimized ML framework for ASR and TTS inference
-- **[AudioKit](https://github.com/AudioKit/AudioKit)** — Audio processing and waveform rendering
-- **[mlx-audio-swift](https://github.com/ml-explore/mlx-audio-swift)** — VAD, ASR, and TTS model integration
-- **Apple Translation** — On-device multilingual translation
-- **KeyboardShortcuts** — Global shortcut management
-- **RevenueCat** — Subscription and paywall management
-- **SwiftAssRenderer** — ASS subtitle rendering
-
----
-
-## Use Cases
-
-**Podcasters & Interviewers** — Trim silence, generate captions, and flag publishable moments without leaving the app.
-
-**Vloggers & Short-form Creators** — Smooth out talking-head recordings and keep focus on pacing instead of manual cuts.
-
-**Course Creators & Meeting Recorders** — Turn hours of live or recorded audio into searchable, translatable text assets via dictation or batch transcription.
-
-**Multilingual Content Teams** — Clone a voice, translate the transcript, and produce dubbed alternate-language versions — all on one Mac.
-
----
-
-## Links
-
-- **Website:** [cliptate.github.io](https://cliptate.github.io)
-- **App Store:** [Download Cliptate](https://apps.apple.com/cn/app/%E5%89%AA%E8%A8%80-cliptate/id6754441004?mt=12)
-- **Issues & Feedback:** [GitHub Issues](https://github.com/cliptate/cliptate.github.io/issues)
-
----
-
-<div align="center">
-  <sub>Built for creators who care about privacy, speed, and professional output.</sub>
-</div>
+[User guide](https://github.com/cliptate/cliptate#readme) · [Release notes](https://github.com/cliptate/cliptate/tree/main/docs/release-notes) · [Issues and feedback](https://github.com/cliptate/cliptate/issues)

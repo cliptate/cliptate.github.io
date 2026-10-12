@@ -1,150 +1,90 @@
-<div align="center">
-  <img src="https://cliptate.github.io/assets/app-icon.png" width="120" alt="Cliptate 图标" />
-  <h1>Cliptate</h1>
-  <p><strong>面向 Mac 音视频创作者的端侧 AI 工作台</strong></p>
+# Cliptate
 
-  <p>
-    <a href="https://apps.apple.com/cn/app/%E5%89%AA%E8%A8%80-cliptate/id6754441004?mt=12"><img alt="在 App Store 下载" src="https://img.shields.io/badge/App%20Store-下载-0066cc?logo=apple&logoColor=white&style=flat-square" /></a>
-    <img alt="macOS 14+" src="https://img.shields.io/badge/macOS-14%2B-000000?logo=apple&logoColor=white&style=flat-square" />
-    <img alt="Apple Silicon" src="https://img.shields.io/badge/Apple%20Silicon-MLX-ff6900?style=flat-square" />
-    <img alt="Swift" src="https://img.shields.io/badge/Swift-5.10-f05138?logo=swift&logoColor=white&style=flat-square" />
-    <img alt="100% 本地处理" src="https://img.shields.io/badge/处理方式-100%25%20本地-22c55e?style=flat-square" />
-  </p>
+[English](README.md) · [中文](README.zh.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Deutsch](README.de.md)
 
-  <p>
-    <a href="https://cliptate.github.io">官网</a> ·
-    <a href="https://cliptate.github.io#features">功能介绍</a> ·
-    <a href="https://cliptate.github.io#voice">语音与 TTS</a> ·
-    <a href="https://apps.apple.com/cn/app/%E5%89%AA%E8%A8%80-cliptate/id6754441004?mt=12">立即下载</a>
-  </p>
+这是 [Cliptate 官方网站](https://cliptate.github.io) 的源码仓库。macOS 应用源码在 [cliptate/cliptate](https://github.com/cliptate/cliptate)。网站内容以应用主分支的代码和文档为依据，安装包的功能以对应 Release 为准。
 
-  <p>
-    <a href="README.md">English</a> ·
-    <a href="README.zh.md">中文</a> ·
-    <a href="README.ja.md">日本語</a> ·
-    <a href="README.ko.md">한국어</a> ·
-    <a href="README.de.md">Deutsch</a>
-  </p>
-</div>
+在 Mac 上完成转写、去停顿、字幕编辑和语音合成，按需启用 AI 纠错与翻译。免费 GitHub 版开放全部模型和 Pro 功能，也能通过 CLI 接入脚本。
 
----
+## 核心能力
 
-Cliptate 是一款原生 macOS 应用，将音视频制作中最耗时的环节整合为一条连续、完全本地化的工作流。无需云端上传，无需 API 密钥，无需等待网络响应——所有模型均在你的 Mac 上运行。
+- **字幕提取精准且可编辑** — 选择 Parakeet、Qwen3 ASR、FireRed 或 Cohere 模型，在 Mac 上转写音视频；使用词典辅助专有词识别。
+- **批量去停顿，粗剪更快成型** — 自动检测无声片段，批量裁剪播客、访谈、课程录音中的冗余停顿。
+- **自动区分说话人，标注对话结构** — 在支持的转写流程中使用 Sortformer 区分说话人；Silero VAD 检测语音活动，让访谈和会议记录更易整理。
+- **从旁白补录到原创音色** — Qwen3 TTS 支持预设音色、参考音频克隆、情感控制和音色设计；按所选模型使用对应能力。
+- **按需纠错，生成双语字幕** — 使用已配置的 AI 服务商和 API 密钥纠正文字、提取重点，支持自定义 OpenAI 兼容端点。字幕翻译通过 Apple 翻译完成，语言对需受系统支持。
+- **让口播更有节奏和重点** — 配置语气词过滤、画面缩放与推近；通过已配置的 AI 服务提取重点，并设置横竖屏字幕样式和翻译位置。
 
----
+## 下载与安装
 
-## 功能
+需要 Apple Silicon（M1 及更新芯片）和 macOS 15 或更新版本。模型大小与内存需求取决于所选模型，请预留足够空间。
 
-### 🎙 语音听写 — 说话即输入
+- **[GitHub 免费版](https://github.com/cliptate/cliptate/releases)** — 全部模型与 Pro 功能免费开放，无需订阅。提供原生 CLI 和应用内更新；可在授权后使用辅助功能支持的文本输入与全局快捷键。在线 AI 服务的费用由服务商另行收取。
+- **[App Store 版](https://apps.apple.com/cn/app/%E5%89%AA%E8%A8%80-cliptate/id6754441004?mt=12)** — 通过 App Store 获取的版本采用订阅策略和沙盒限制，不包含 CLI。听写文本通过复制粘贴使用，快捷键行为也受该渠道限制；功能与价格以商店页面为准。
+- **[Nightly 预览构建](https://github.com/cliptate/cliptate/releases/tag/nightly)** — Nightly 随主分支定期构建，可能包含尚未正式发布的改动。请查看对应构建说明确认功能。
 
-实时流式语音转文字，像输入法一样随时唤起。通过全局快捷键从任意应用调出，说话即可生成可编辑文本。
+1. 下载 Release 中的 Cliptate.dmg，将应用拖入「应用程序」。可用同页的 SHA-256 文件校验下载。
+2. 打开应用，选择并下载模型；使用听写时允许麦克风访问，需要自动输入时再授权辅助功能。
+3. 导入素材开始转写。使用 CLI 前先完成安装；升级替换应用后，重新启动 Cliptate。
 
-- 流式实时转写，低延迟输出
-- 多说话人自动识别与标注
-- 自定义词典，提升专有词汇准确率
-- 全局快捷键随时唤起或暂停
+## 原生 CLI · GitHub 版
 
-### 📝 离线转写
+CLI 复用应用的模型、语言和词典，必要时在后台启动 Cliptate。从「设置 → 命令行」复制安装命令，并将 ~/.local/bin 加入 PATH。
 
-批量转写音视频文件，全程在设备端完成。支持多种 ASR 引擎（Parakeet、Qwen3、FireRed ASR）和针对 Apple Silicon 优化的 MLX 推理，生成精准字幕，不向任何服务器发送音频。
+```sh
+cliptate transcribe interview.mp4 --format json
+cliptate transcribe a.wav b.mp4 --format vtt --output-dir subtitles
+cliptate tts --text-file narration.txt -o narration.wav --download
+cliptate dictionary add "Cliptate"
+cliptate dictionary import words.txt
+```
 
-### ✂️ 智能去停顿
+转写支持本地文件及 text、JSON、Markdown、SRT、VTT 输出。CLI 不创建项目或历史记录；一次运行一个转写或语音生成请求。TTS 命令已加入最新源码，请选用包含该功能的构建；旧版可用 cliptate --help 查看支持的命令。
 
-基于 VAD 的静音检测，自动识别并批量裁剪播客、访谈、课程录音中的冗余停顿，让粗剪更快接近可交付状态。
+[完整 CLI 使用指南](https://github.com/cliptate/cliptate/blob/main/docs/cli.md)
 
-### 👥 说话人识别
+## 隐私与性能
 
-自动识别录音中的多位说话人并分段标注。Sortformer 与 Silero VAD 模型在设备端运行，为访谈、圆桌和会议记录生成结构清晰、带说话人归属的逐字稿。
+转写、静音检测、说话人识别与 TTS 在 Mac 上运行。启用在线 AI 功能时，相关文本及你选择的上下文会发送至配置的服务。
 
-### 🔊 TTS 语音合成 — 四种模式
+- 本地语音推理无需上传音视频，也不需要 AI API 密钥。
+- 首次下载模型需要联网；缓存完成后，本地语音功能可离线使用。
+- AI 纠错、重点提取与听写增强使用你配置的服务；在线服务可能另行收费。
+- 处理敏感内容时，可仅使用本地语音功能与 Apple 翻译；翻译语言包可能需要先下载。
 
-| 模式 | 说明 |
-|---|---|
-| **预设音色** | 内置多语言音色库，即开即用 |
-| **声音克隆** | 上传参考音频，复现说话人的音色与节奏 |
-| **情感控制** | 通过提示词调控指定音色的情感与表达风格 |
-| **音色设计** | 用文字描述生成完全原创的声音形象 |
+## 专业输出
 
-所有 TTS 推理均通过 MLX 在设备端完成，音频不上传云端。
+AI 剪辑界面支持时间线、字幕与音视频导出；CLI 另外提供 JSON、Markdown 和 VTT，方便自动化。
 
-### 🌐 AI 纠错与翻译
+- **FCPXML** — 适配时间线工程交换
+- **SRT** — 通用字幕交付
+- **ASS** — 样式化字幕支持
+- **TXT** — 带时间戳的文字稿
 
-上下文感知的字幕纠错，结合设备端或 Apple 翻译生成多语言输出，无需切换工具即可制作面向全球受众的内容。
+FCPXML 面向 Final Cut Pro，并提供 Resolve 兼容选项。字幕可按剪辑软件支持的格式导入；视频支持 MP4 / MOV / M4V，音频支持 M4A / WAV。
 
-### ⭐ 高亮标记
+## 网站开发
 
-自动识别录音中最关键的句子与精彩片段，并在时间线上标注——让剪辑和发布流程更快推进。
+网站使用 Astro、TypeScript 和 Tailwind CSS。需要 Node.js 22.12 或更新版本。
 
----
+```sh
+npm ci
+npm run dev
+npm run check
+npm run build
+npm run preview
+```
 
-## 导出格式
+构建输出在 dist/。main 分支推送后，.github/workflows/deploy.yml 会构建并发布到 GitHub Pages。
 
-Cliptate 直接输出你常用工具所需的格式：
+## 内容维护
 
-| 格式 | 用途 |
-|---|---|
-| **FCPXML** | Final Cut Pro 时间线工程交换 |
-| **SRT** | 通用字幕交付 |
-| **ASS** | 带样式与定位的字幕格式 |
-| **VTT** | 适用于浏览器与流媒体平台的网页字幕 |
+修改功能描述前，核对应用源码、docs/development.md、docs/cli.md 和版本说明。同步更新五种语言，区分本地语音与可选在线 AI、GitHub 与 App Store 渠道、界面与 CLI 输出，以及已发布与最新源码中的能力。
 
-兼容 **Final Cut Pro**、**DaVinci Resolve** 和 **Adobe Premiere Pro**。
+- src/data/site.ts
+- src/data/guide.ts
+- src/pages/index.astro
+- src/components/LanguageToggle.astro
+- public/assets/screenshots/
 
----
-
-## 隐私与安全
-
-- **零云端上传** — 音频、视频和字幕始终留在你的 Mac 上
-- **无需 API 密钥** — 所有模型随应用附带或首次使用时下载
-- **无网络依赖** — 模型缓存后完全离线可用
-- 适合敏感、机密及合规要求严格的内容场景
-
----
-
-## 系统要求
-
-| | |
-|---|---|
-| **平台** | macOS 14 Sonoma 或更高版本 |
-| **架构** | 推荐 Apple Silicon（M1 及以上） |
-| **存储空间** | 因模型选择而异（完整模型组约 2–8 GB） |
-
----
-
-## 技术栈
-
-Cliptate 完全使用 Swift 开发，基于 Apple 原生框架构建：
-
-- **[MLX Swift](https://github.com/ml-explore/mlx-swift)** — 针对 Apple Silicon 优化的机器学习框架，用于 ASR 和 TTS 推理
-- **[AudioKit](https://github.com/AudioKit/AudioKit)** — 音频处理与波形渲染
-- **[mlx-audio-swift](https://github.com/ml-explore/mlx-audio-swift)** — VAD、ASR 与 TTS 模型集成
-- **Apple Translation** — 设备端多语言翻译
-- **KeyboardShortcuts** — 全局快捷键管理
-- **RevenueCat** — 订阅与付费墙管理
-- **SwiftAssRenderer** — ASS 字幕渲染
-
----
-
-## 适用场景
-
-**播客主与访谈者** — 去停顿、生成字幕、标记可发布片段，无需离开应用。
-
-**Vlog 与短视频创作者** — 让口播剪辑更顺滑，专注于节奏和表达。
-
-**课程制作者与会议记录者** — 通过实时听写或批量转写，将数小时录音转化为可检索、可翻译的文本资产。
-
-**多语言内容团队** — 克隆声音、翻译字幕、生成配音版本——全在一台 Mac 上完成。
-
----
-
-## 链接
-
-- **官网：** [cliptate.github.io](https://cliptate.github.io)
-- **App Store：** [下载 Cliptate](https://apps.apple.com/cn/app/%E5%89%AA%E8%A8%80-cliptate/id6754441004?mt=12)
-- **问题与反馈：** [GitHub Issues](https://github.com/cliptate/cliptate.github.io/issues)
-
----
-
-<div align="center">
-  <sub>为重视隐私、速度与专业输出的创作者而生。</sub>
-</div>
+[使用指南](https://github.com/cliptate/cliptate#readme) · [版本说明](https://github.com/cliptate/cliptate/tree/main/docs/release-notes) · [问题与反馈](https://github.com/cliptate/cliptate/issues)
