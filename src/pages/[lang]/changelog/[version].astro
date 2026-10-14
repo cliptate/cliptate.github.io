@@ -1,0 +1,12 @@
+---
+import ReleaseNotes from '../../../views/ReleaseNotes.astro';
+import { releases } from '../../../data/changelog';
+import { defaultLanguage, languages } from '../../../data/languages';
+export function getStaticPaths() {
+  return languages.filter(({ code }) => code !== defaultLanguage).flatMap(({ code }) =>
+    releases.map((release) => ({ params: { lang: code, version: release.tag }, props: { release } }))
+  );
+}
+const { release } = Astro.props;
+---
+<ReleaseNotes release={release} />

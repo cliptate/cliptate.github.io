@@ -88,6 +88,10 @@ npm run preview
 
 ## 内容维护
 
+`/changelog/` 列表和 `/changelog/<tag>/` 详情以五种语言展示 v1.0–v1.2，主导航和首页页脚均提供入口。详情包含功能变化、升级说明、已知限制、GitHub 原始发布记录及完整的英文验证与提交记录。页面输出静态 HTML，提供 Article/ItemList 结构化数据、本地化面包屑和按实际内容更新时间生成的 sitemap `lastmod`。
+
+新增已发布的正式版本时，核对 `cliptate/cliptate/docs/release-notes/<tag>.md` 与 GitHub Release，在 `src/data/release-metadata.json` 添加元信息，并在 `src/data/changelog.ts` 翻译所有字段。`date` 是原文版本日期，`published` 是官网条目首次发布日，`updated` 是内容修改日；编辑时保留 `published`，仅在内容实质变化时更新 `updated`。路由、语言链接、版本排序、结构化数据和 sitemap 日期均自动生成。Nightly 和 main 中未发布的功能不进入正式版本列表。官网记录需显式维护，不在运行时获取或自动同步发布记录。
+
 中文保留原有根路径；英文、日文、韩文和德文分别使用 `/en/`、`/ja/`、`/ko/` 和 `/de/`，覆盖指南与文章。每个 URL 无需 JavaScript 即可呈现单一语言，包含对应元数据、自引用 canonical、双向 hreflang 和站点地图语言关系。语言链接保留当前页面，浏览器语言偏好不会覆盖 URL 指定的语言。
 
 页面模板位于 `src/views/`，`src/pages/` 负责静态路由。构建后运行 `npm run check:seo`，检查所有语言页面、站内链接、锚点、图片、核心元数据和结构化数据关系。部署会在发布前运行类型与 SEO 检查。上线后向 Google Search Console 与 Bing Webmaster Tools 提交 `/sitemap-index.xml`，通过这些平台观察收录和排名。FAQ JSON-LD 描述页面中的问答；Google [已停止显示 FAQ 富结果](https://developers.google.com/search/updates#june-2026)，这里不将其作为 Google 富结果优化手段。
@@ -99,6 +103,8 @@ npm run preview
 - scripts/check-seo.py
 - src/data/guide.ts
 - src/data/blog.ts
+- src/data/changelog.ts 和 src/data/release-metadata.json
+- src/pages/changelog/
 - src/pages/blog/
 - src/pages/guide/
 - src/components/SiteHeader.astro

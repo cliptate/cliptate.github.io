@@ -1,0 +1,9 @@
+---
+import ReleaseNotes from '../../views/ReleaseNotes.astro';
+import { releases } from '../../data/changelog';
+export function getStaticPaths() {
+  return releases.map((release) => ({ params: { version: release.tag }, props: { release } }));
+}
+const { release } = Astro.props;
+---
+<ReleaseNotes release={release} />

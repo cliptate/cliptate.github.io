@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import LocalizedText from '../components/LocalizedText.astro';
+import { changelog, releases, releaseHeading, type Release } from '../data/changelog';
+import { guide } from '../data/guide';
+import { languageForPath, localizedPath, languages, serializeJson } from '../data/languages';
+
+interface Props { release: Release }
+const { release } = Astro.props;
+const language = languageForPath(Astro.url.pathname);
+const canonical = new URL(localizedPath(`/changelog/${release.tag}/`, language), Astro.site).toString();
+const index = releases.findIndex(({ tag }) => tag === release.tag);
+const previous = releases[index + 1];
+const next = releases[index - 1];
+const structuredData = {
+  '@context': 'https://schema.org', '@type': 'Article',
+  '@id': `${canonical}#article`,
+  headline: releaseHeading(release, language), description: release.summary[language],
+  datePublished: release.published, dateModified: release.updated,
+  author: { '@id': `${Astro.site}#organization` },
+  publisher: { '@id': `${Astro.site}#organization` },
+  mainEntityOfPage: canonical,
+  inLanguage: languages.find(({ code }) => code === language)!.htmlLang,
+  image: new URL(`/assets/screenshots/home.${language}.jpg`, Astro.site).toString(),
+};
+---
+
+<BaseLayout title={release.metaTitle} description={release.summary} type="article" published={release.published} modified={release.updated}>
+  <script type="application/ld+json" is:inline set:html={serializeJson(structuredData)} />
+  <main class="site-shell">
+    <SiteHeader />
+    <article>
+      <header class="section editorial-hero">
+        <a class="text-link" href={localizedPath('/changelog/', language)}>← <LocalizedText value={changelog.back} /></a>
+        <p class="eyebrow"><LocalizedText value={changelog.nav} /> · {release.tag}</p>
+        <h1 class="editorial-title article-title">Cliptate {release.tag} · <LocalizedText value={release.title} /></h1>
+        <p class="lede"><LocalizedText value={release.summary} /></p>
+        <p class="article-meta">
+          <LocalizedText value={changelog.published} /> · <time datetime={release.date}>{release.date}</time>
+          <br /><LocalizedText value={changelog.updated} /> · <time datetime={release.updated}>{release.updated}</time>
+        </p>
+      </header>
+      <div class="article-body">
+        <section class="article-section" aria-labelledby="changes-heading">
+          <h2 id="changes-heading"><LocalizedText value={changelog.changes} /></h2>
+          <ul class="release-changes">{release.changes.map((change) => <li><LocalizedText value={change} /></li>)}</ul>
+        </section>
+        <section class="article-section" aria-labelledby="upgrade-heading">
+          <h2 id="upgrade-heading"><LocalizedText value={changelog.upgrade} /></h2>
+          <ul class="release-changes">{release.upgrade.map((note) => <li><LocalizedText value={note} /></li>)}</ul>
+          <a class="text-link" href={localizedPath('/guide/', language)}><LocalizedText value={guide.page.read} /> →</a>
+        </section>
+        <section class="article-section" aria-labelledby="limitations-heading">
+          <h2 id="limitations-heading"><LocalizedText value={changelog.limitations} /></h2>
+          <p><LocalizedText value={release.limitations} /></p>
+        </section>
+        <section class="article-section article-download" aria-labelledby="source-heading">
+          <h2 id="source-heading"><LocalizedText value={changelog.source} /></h2>
+          <p><LocalizedText value={changelog.scope} /></p>
+          <div class="release-source-links">
+            <a class="text-link" href={release.releaseUrl} target="_blank" rel="noreferrer">GitHub · {release.tag} ↗</a>
+            <a class="text-link" href={release.notesUrl} target="_blank" rel="noreferrer"><LocalizedText value={changelog.notes} /> ↗</a>
+          </div>
+        </section>
+      </div>
+    </article>
+    <nav class="release-pagination" aria-label={changelog.archive[language]}>
+      {previous && <a class="glass-panel" href={localizedPath(`/changelog/${previous.tag}/`, language)}><span class="article-meta">← <LocalizedText value={changelog.previous} /></span><strong>{previous.tag} · <LocalizedText value={previous.title} /></strong></a>}
+      {next && <a class="glass-panel" href={localizedPath(`/changelog/${next.tag}/`, language)}><span class="article-meta"><LocalizedText value={changelog.next} /> →</span><strong>{next.tag} · <LocalizedText value={next.title} /></strong></a>}
+    </nav>
+  </main>
+</BaseLayout>

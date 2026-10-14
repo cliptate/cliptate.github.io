@@ -1,0 +1,8 @@
+---
+import Changelog from '../../../views/Changelog.astro';
+import { defaultLanguage, languages } from '../../../data/languages';
+export function getStaticPaths() {
+  return languages.filter(({ code }) => code !== defaultLanguage).map(({ code }) => ({ params: { lang: code } }));
+}
+---
+<Changelog />

@@ -1,4 +1,5 @@
 export type { LocalizedString } from './languages';
+import { changelog } from './changelog';
 
 export const siteData = {
   ui: {
@@ -33,6 +34,7 @@ export const siteData = {
       de: "Funktionen",
     } },
     { href: '/blog/', label: { zh: '博客', en: 'Blog', ja: 'ブログ', ko: '블로그', de: 'Blog' } },
+    { href: '/changelog/', label: changelog.nav },
     { href: "#download", label: {
       zh: "下载",
       en: "Download",

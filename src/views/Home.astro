@@ -6,6 +6,7 @@ import { siteData } from '../data/site';
 import { guide } from '../data/guide';
 import { languages, languageForPath, localizedPath, serializeJson } from '../data/languages';
 import { blog } from '../data/blog';
+import { changelog } from '../data/changelog';
 
 const language = languageForPath(Astro.url.pathname);
 const heroImages = Object.fromEntries(languages.map(({ code }) => [code, {
@@ -342,7 +343,7 @@ const structuredData = {
         <a href={localizedPath('/blog/', language)}><LocalizedText value={blog.nav} /></a>
         <a href={siteData.githubUrl} target="_blank" rel="noreferrer">GitHub</a>
         <a href={localizedPath('/guide/', language)}><LocalizedText value={guide.links.guide} /></a>
-        <a href={guide.releaseNotesUrl} target="_blank" rel="noreferrer"><LocalizedText value={guide.links.releases} /></a>
+        <a href={localizedPath('/changelog/', language)}><LocalizedText value={changelog.nav} /></a>
         <a href={guide.issuesUrl} target="_blank" rel="noreferrer"><LocalizedText value={guide.links.feedback} /></a>
         <a href={siteData.appStoreUrl} target="_blank" rel="noreferrer">App Store</a>
       </div>

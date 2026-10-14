@@ -88,6 +88,10 @@ Unter `/blog/` stehen Vergleiche von Cliptate mit Wispr Flow, MacWhisper und Des
 
 ## Inhaltspflege
 
+`/changelog/` und `/changelog/<tag>/` zeigen v1.0–v1.2 in fünf Sprachen. Navigation und Startseiten-Footer verlinken das Archiv. Details enthalten Funktionen, Upgrade-Hinweise, Grenzen, GitHub-Originale und englische Prüf-/Commit-Protokolle. Statisches HTML, Article/ItemList, lokalisierte Breadcrumbs und sitemap `lastmod` mit dem tatsächlichen Änderungsdatum werden erzeugt.
+
+Für eine neue stabile Veröffentlichung `cliptate/cliptate/docs/release-notes/<tag>.md` und das GitHub Release prüfen, Metadaten in `src/data/release-metadata.json` ergänzen und alle Felder in `src/data/changelog.ts` übersetzen. `date` ist das Versionsdatum im Original, `published` die erste Website-Veröffentlichung, `updated` das Änderungsdatum. `published` bei Bearbeitung beibehalten; `updated` nur bei wesentlichen Änderungen anpassen. Routen, Sprachlinks, Reihenfolge, Schema und Sitemap entstehen automatisch. Nightly und unveröffentlichte Funktionen bleiben außerhalb des Archivs. Veröffentlichungen werden ausdrücklich gepflegt, ohne automatische Synchronisierung oder Abruf zur Laufzeit.
+
 Chinesisch behält die bisherigen Root-URLs. Englisch, Japanisch, Koreanisch und Deutsch verwenden `/en/`, `/ja/`, `/ko/` und `/de/`, auch für Anleitung und Artikel. Jede URL liefert statisches HTML in einer Sprache ohne JavaScript. Sprachlinks behalten die aktuelle Seite; Metadaten, Canonical, hreflang und Sitemap stimmen überein.
 
 Vorlagen liegen in `src/views/`, Routen in `src/pages/`. Nach dem Build prüft `npm run check:seo` Sprachseiten, Links, Bilder, zentrale Metadaten und strukturierte Daten. CI führt diese Prüfungen vor der Veröffentlichung aus. Danach `/sitemap-index.xml` in Search Console und Bing Webmaster Tools einreichen und Indexierung sowie Rankings beobachten. FAQ-JSON-LD beschreibt sichtbare Fragen und Antworten; Google hat FAQ-Rich-Results eingestellt.
@@ -99,6 +103,8 @@ Vor Änderungen App-Quellcode, docs/development.md, docs/cli.md und Versionshinw
 - scripts/check-seo.py
 - src/data/guide.ts
 - src/data/blog.ts
+- src/data/changelog.ts / src/data/release-metadata.json
+- src/pages/changelog/
 - src/pages/blog/
 - src/pages/guide/
 - src/components/SiteHeader.astro
