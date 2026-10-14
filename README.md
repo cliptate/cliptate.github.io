@@ -82,6 +82,14 @@ npm run preview
 
 Build output is in dist/. Pushes to main trigger .github/workflows/deploy.yml to build and publish to GitHub Pages.
 
+### Website analytics
+
+Google Analytics 4 uses the [**Cliptate** property](https://analytics.google.com/analytics/web/#/a371128074p558978488/admin/streams/table/16126555486) (`558978488`) in the existing **VoicePinkPro** account and the **Cliptate Website** Web stream (`16126555486`) for `https://cliptate.github.io`. The measurement ID is `G-YFZGXWWR9V` (a public tag identifier, not a secret). Reports use China time (UTC+8).
+
+`src/components/GoogleAnalytics.astro` is included once in the shared layout, covering every language and page. It loads Google's asynchronous tag only in production builds served from the configured site hostname; development, localhost previews, and other hostnames do not send events. Enhanced measurement is enabled for page views and supported interactions such as scrolling and outbound links. Google signals and advertising personalization signals are disabled in the tag configuration. This measures website usage; it adds no telemetry to the macOS application.
+
+After deployment, open the Cliptate property in Google Analytics and check Realtime while visiting the live site. The data stream's installation check can also verify the tag. Update the measurement ID in the component if the Web stream is replaced.
+
 ## Articles and comparisons
 
 The `/blog/` index covers Cliptate vs Wispr Flow, MacWhisper, and Descript. Each article includes a workflow comparison, edition differences, a practical trial, and dated official sources in all five languages. A compact homepage entry and navigation link to the articles. `/guide/` holds installation details, models, CLI examples, and common questions, leaving the homepage focused on the product.

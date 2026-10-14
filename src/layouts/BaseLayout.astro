@@ -6,6 +6,7 @@ import { languages, languageForPath, localizedPath, unlocalizedPath, serializeJs
 import { blog } from '../data/blog';
 import { guide } from '../data/guide';
 import { changelog } from '../data/changelog';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 
 interface Props {
   title: LocalizedString;
@@ -47,6 +48,7 @@ const structuredData = {
 <!doctype html>
 <html lang={locale.htmlLang} data-lang={language}>
   <head>
+    <GoogleAnalytics />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
