@@ -22,8 +22,8 @@ export const guide = {
   releaseNotesUrl: 'https://github.com/cliptate/cliptate/tree/main/docs/release-notes',
   screenshot: {
     title: l('从一个原生 Mac 工作台开始。', 'Start in one native Mac workspace.', 'ひとつのネイティブ Mac アプリから。', '하나의 네이티브 Mac 작업 공간에서 시작하세요.', 'Ein nativer Mac-Arbeitsbereich als Ausgangspunkt.'),
-    caption: l('AI 剪辑、语音转文字、文字转语音、模型、历史和词典，都在同一个应用里。', 'AI Cut, Voice To Text, Text To Speech, models, history, and vocabulary in one app.', 'AI カット、音声入力、音声合成、モデル、履歴、辞書をひとつのアプリに。', 'AI 편집, 음성 전사, 음성 합성, 모델, 기록, 사전을 하나의 앱에서 사용하세요.', 'AI Cut, Sprache zu Text, Text zu Sprache, Modelle, Verlauf und Wörterbuch in einer App.'),
-    alt: l('Cliptate 中文主界面，显示 AI 剪辑导入区和功能侧栏', 'Cliptate English home screen with the AI Cut import area and feature sidebar', 'Cliptate 日本語ホーム画面の AI カット取り込みエリアと機能サイドバー', 'AI 편집 가져오기 영역과 기능 사이드바가 있는 Cliptate 한국어 홈 화면', 'Cliptate-Startseite auf Deutsch mit AI-Cut-Importbereich und Funktionsleiste'),
+    caption: l('浅灰色的原生 Mac 工作台，集成 AI 剪辑、语音转文字、文字转语音、模型、历史和词典。', 'A native Mac workspace with a light-gray background for AI Cut, Voice To Text, Text To Speech, models, history, and vocabulary.', 'ライトグレーのネイティブ Mac ワークスペースに、AI カット、音声入力、音声合成、モデル、履歴、辞書を集約。', '연한 회색 배경의 네이티브 Mac 작업 공간에서 AI 편집, 음성 전사, 음성 합성, 모델, 기록, 사전을 사용하세요.', 'Ein nativer Mac-Arbeitsbereich mit hellgrauem Hintergrund für KI-Schnitt, Sprache zu Text, Text zu Sprache, Modelle, Verlauf und Wörterbuch.'),
+    alt: l('Cliptate 简体中文浅色首页，显示浅灰色背景、AI 剪辑导入区和功能侧栏', 'Cliptate English home screen in light appearance, with a light-gray background, AI Cut import area, and feature sidebar', 'Cliptate 日本語ホーム画面のライトグレーの背景、AI カット取り込みエリア、機能サイドバー', '연한 회색 배경, AI 편집 가져오기 영역, 기능 사이드바가 있는 Cliptate 한국어 라이트 모드 홈 화면', 'Cliptate-Startseite auf Deutsch in heller Ansicht mit hellgrauem Hintergrund, KI-Schnitt-Importbereich und Funktionsleiste'),
   },
   models: {
     kicker: l('模型与日常使用', 'Models and everyday use', 'モデルと日々の作業', '모델과 일상 작업', 'Modelle und tägliche Arbeit'),

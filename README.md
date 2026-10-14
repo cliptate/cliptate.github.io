@@ -6,6 +6,10 @@ Source for the [Cliptate website](https://cliptate.github.io). The macOS applica
 
 Transcribe, trim pauses, edit captions, and synthesize speech on your Mac. Enable AI correction and translation when needed. The free GitHub build unlocks all models and Pro features, with a CLI for scripts.
 
+![Cliptate AI Cut home screen in English with a light-gray background](public/assets/screenshots/home.en.jpg)
+
+*Light appearance with a light-gray page background.*
+
 ## Core capabilities
 
 - **Accurate, editable subtitle extraction** — Choose Parakeet, Qwen3 ASR, FireRed, or Cohere models for local audio/video transcription. Add custom vocabulary for specialist terms.

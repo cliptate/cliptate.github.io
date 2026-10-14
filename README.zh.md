@@ -6,6 +6,10 @@
 
 在 Mac 上完成转写、去停顿、字幕编辑和语音合成，按需启用 AI 纠错与翻译。免费 GitHub 版开放全部模型和 Pro 功能，也能通过 CLI 接入脚本。
 
+![Cliptate AI 剪辑首页（简体中文），浅灰色背景](public/assets/screenshots/home.zh.jpg)
+
+*浅色外观采用浅灰色页面背景。*
+
 ## 核心能力
 
 - **字幕提取精准且可编辑** — 选择 Parakeet、Qwen3 ASR、FireRed 或 Cohere 模型，在 Mac 上转写音视频；使用词典辅助专有词识别。

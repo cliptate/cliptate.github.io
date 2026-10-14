@@ -6,6 +6,10 @@
 
 Mac에서 전사, 무음 제거, 자막 편집, 음성 합성을 처리하세요. 필요할 때 AI 교정과 번역을 사용하세요. 무료 GitHub 버전은 모든 모델과 Pro 기능, 스크립트용 CLI를 제공합니다.
 
+![연한 회색 배경의 Cliptate AI 컷 홈 화면 (한국어)](public/assets/screenshots/home.ko.jpg)
+
+*라이트 모드의 페이지 배경은 연한 회색입니다.*
+
 ## 핵심 기능
 
 - **정확하고 편집 가능한 자막 추출** — Parakeet, Qwen3 ASR, FireRed, Cohere 모델로 오디오와 비디오를 로컬 전사하고 사용자 사전으로 전문 용어 인식을 보완하세요.
