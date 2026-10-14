@@ -96,7 +96,7 @@ The `/blog/` index covers Cliptate vs Wispr Flow, MacWhisper, and Descript. Each
 
 ## Content maintenance
 
-The `/changelog/` archive and `/changelog/<tag>/` details summarize v1.0–v1.2 in all five languages. Navigation and the homepage footer link to the archive. Each detail includes features, upgrade notes, limitations, the original GitHub Release, and the full English validation/commit record. Pages are static HTML with Article/ItemList schema and localized breadcrumbs; sitemap `lastmod` uses the actual content modification date.
+The `/changelog/` archive and `/changelog/<tag>/` details summarize v1.0–v1.3 in all five languages. Navigation and the homepage footer link to the archive. Each detail includes features, upgrade notes, limitations, the original GitHub Release, and the full English validation/commit record. Pages are static HTML with Article/ItemList schema and localized breadcrumbs; sitemap `lastmod` uses the actual content modification date.
 
 For a new published stable release, verify `cliptate/cliptate/docs/release-notes/<tag>.md` and the GitHub Release, add metadata in `src/data/release-metadata.json`, and translate every field in `src/data/changelog.ts`. `date` is the version date from the source document, `published` is when the website entry is first published, and `updated` is when its content changes. Keep `published` unchanged during edits; bump `updated` only for substantive changes. Routes, language links, release ordering, schemas, and sitemap dates are generated from this data. Nightly and unreleased main-branch features stay out of the stable archive. The website archive is maintained explicitly; it does not fetch releases at runtime or sync automatically.
 

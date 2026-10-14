@@ -88,7 +88,7 @@ npm run preview
 
 ## 内容维护
 
-`/changelog/` 列表和 `/changelog/<tag>/` 详情以五种语言展示 v1.0–v1.2，主导航和首页页脚均提供入口。详情包含功能变化、升级说明、已知限制、GitHub 原始发布记录及完整的英文验证与提交记录。页面输出静态 HTML，提供 Article/ItemList 结构化数据、本地化面包屑和按实际内容更新时间生成的 sitemap `lastmod`。
+`/changelog/` 列表和 `/changelog/<tag>/` 详情以五种语言展示 v1.0–v1.3，主导航和首页页脚均提供入口。详情包含功能变化、升级说明、已知限制、GitHub 原始发布记录及完整的英文验证与提交记录。页面输出静态 HTML，提供 Article/ItemList 结构化数据、本地化面包屑和按实际内容更新时间生成的 sitemap `lastmod`。
 
 新增已发布的正式版本时，核对 `cliptate/cliptate/docs/release-notes/<tag>.md` 与 GitHub Release，在 `src/data/release-metadata.json` 添加元信息，并在 `src/data/changelog.ts` 翻译所有字段。`date` 是原文版本日期，`published` 是官网条目首次发布日，`updated` 是内容修改日；编辑时保留 `published`，仅在内容实质变化时更新 `updated`。路由、语言链接、版本排序、结构化数据和 sitemap 日期均自动生成。Nightly 和 main 中未发布的功能不进入正式版本列表。官网记录需显式维护，不在运行时获取或自动同步发布记录。
 
