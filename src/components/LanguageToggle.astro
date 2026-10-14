@@ -1,62 +1,19 @@
 ---
-import { defaultLanguage, languageLabels, languages } from '../data/languages';
+import { languageForPath, localizedPath, languageLabels, languages } from '../data/languages';
+const language = languageForPath(Astro.url.pathname);
+const selected = languages.find(({ code }) => code === language)!;
 ---
 
-<div class="language-toggle">
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-    <circle cx="12" cy="12" r="9" />
-    <ellipse cx="12" cy="12" rx="4" ry="9" />
-    <path d="M3 12h18" />
-  </svg>
-  <select data-language-select aria-label={languageLabels[defaultLanguage]}>
+<details class="language-toggle">
+  <summary aria-label={languageLabels[language]}>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+      <circle cx="12" cy="12" r="9" /><ellipse cx="12" cy="12" rx="4" ry="9" /><path d="M3 12h18" />
+    </svg>
+    <span>{selected.label}</span>
+  </summary>
+  <ul class="language-menu">
     {languages.map(({ code, label, htmlLang }) => (
-      <option value={code} lang={htmlLang} selected={code === defaultLanguage}>{label}</option>
+      <li><a href={localizedPath(Astro.url.pathname, code)} lang={htmlLang} hreflang={htmlLang} aria-current={code === language ? 'true' : undefined}>{label}</a></li>
     ))}
-  </select>
-</div>
-
-<script>
-  import { defaultLanguage, languageLabels, languages, languageStorageKey } from '../data/languages';
-  import { siteData } from '../data/site';
-  import type { Language, LocalizedString } from '../data/languages';
-
-  const pageMetadata: { title: LocalizedString; description: LocalizedString } = JSON.parse(
-    document.querySelector('#page-localization')!.textContent!
-  );
-
-  function applyLanguage(language: string | undefined) {
-    const selected = languages.find(({ code }) => code === language)
-      ?? languages.find(({ code }) => code === defaultLanguage)!;
-    const lang = selected.code;
-    document.documentElement.dataset.lang = lang;
-    document.documentElement.lang = selected.htmlLang;
-    document.title = pageMetadata.title[lang];
-
-    document.querySelectorAll<HTMLSelectElement>('[data-language-select]').forEach((select) => {
-      select.value = lang;
-      select.setAttribute('aria-label', languageLabels[lang]);
-    });
-    document.querySelectorAll<HTMLImageElement>('[data-localized-image]').forEach((image) => {
-      const variants = JSON.parse(image.dataset.localizedImage!) as Record<Language, { src: string; alt: string }>;
-      if (image.getAttribute('src') !== variants[lang].src) image.src = variants[lang].src;
-      image.alt = variants[lang].alt;
-    });
-    Object.entries(siteData.ui).forEach(([key, labels]) => {
-      document.querySelector(`[data-localized-label="${key}"]`)?.setAttribute('aria-label', labels[lang]);
-    });
-    document.querySelector<HTMLMetaElement>('meta[name="description"]')?.setAttribute('content', pageMetadata.description[lang]);
-    document.querySelector<HTMLMetaElement>('meta[property="og:title"]')?.setAttribute('content', pageMetadata.title[lang]);
-    document.querySelector<HTMLMetaElement>('meta[property="og:description"]')?.setAttribute('content', pageMetadata.description[lang]);
-  }
-
-  applyLanguage(document.documentElement.dataset.lang);
-
-  document.querySelectorAll<HTMLSelectElement>('[data-language-select]').forEach((select) => {
-    select.addEventListener('change', () => {
-      applyLanguage(select.value);
-      try {
-        localStorage.setItem(languageStorageKey, document.documentElement.dataset.lang!);
-      } catch {}
-    });
-  });
-</script>
+  </ul>
+</details>

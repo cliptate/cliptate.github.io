@@ -10,7 +10,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "astro": "astro"
+    "astro": "astro",
+    "check:seo": "python3 scripts/check-seo.py"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",

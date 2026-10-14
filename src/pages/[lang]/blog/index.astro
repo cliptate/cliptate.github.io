@@ -1,0 +1,8 @@
+---
+import Blog from '../../../views/Blog.astro';
+import { defaultLanguage, languages } from '../../../data/languages';
+export function getStaticPaths() {
+  return languages.filter((language) => language.code !== defaultLanguage).map((language) => ({ params: { lang: language.code } }));
+}
+---
+<Blog />

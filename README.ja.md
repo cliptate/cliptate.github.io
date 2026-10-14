@@ -72,6 +72,7 @@ npm ci
 npm run dev
 npm run check
 npm run build
+npm run check:seo
 npm run preview
 ```
 
@@ -83,9 +84,15 @@ npm run preview
 
 ## コンテンツ管理
 
+中国語は既存のルート URL を維持し、英語・日本語・韓国語・ドイツ語は `/en/`・`/ja/`・`/ko/`・`/de/` を使います。ガイドと記事も各言語の静的 HTML として出力され、JavaScript は不要です。言語リンクは現在のページを維持し、canonical、hreflang、サイトマップとメタ情報が一致します。
+
+テンプレートは `src/views/`、ルートは `src/pages/` にあります。ビルド後の `npm run check:seo` は言語、リンク、画像、主要メタ情報と構造化データを検証し、公開前の CI でも実行します。公開後は Search Console と Bing Webmaster Tools に `/sitemap-index.xml` を送信し、登録と順位を確認してください。FAQ JSON-LD は表示中の質問と回答を記述します。Google の FAQ リッチリザルトは廃止済みです。
+
 機能の説明を変更する前に、アプリのソース、docs/development.md、docs/cli.md、リリースノートを確認。5 言語を更新し、ローカル音声とオンライン AI、GitHub と App Store、GUI と CLI、公開済みと最新ソースの機能を区別してください。
 
 - src/data/site.ts
+- src/views/
+- scripts/check-seo.py
 - src/data/guide.ts
 - src/data/blog.ts
 - src/pages/blog/

@@ -2,20 +2,23 @@
 import LanguageToggle from './LanguageToggle.astro';
 import LocalizedText from './LocalizedText.astro';
 import { siteData } from '../data/site';
-const isHome = Astro.url.pathname === '/';
+import { languageForPath, localizedPath, unlocalizedPath } from '../data/languages';
+const language = languageForPath(Astro.url.pathname);
+const path = unlocalizedPath(Astro.url.pathname);
+const isHome = path === '/';
 ---
 
 <header class="site-header">
-  <a class="brand" href={isHome ? '#top' : '/'} aria-label="Cliptate">
+  <a class="brand" href={isHome ? '#top' : localizedPath('/', language)} aria-label="Cliptate">
     <img class="brand-icon" src="/assets/app-icon.png" alt="" width="28" height="28" aria-hidden="true" />
     <span class="brand-wordmark">Cliptate</span>
   </a>
-  <nav class="top-nav" data-localized-label="navigation" aria-label={siteData.ui.navigation.zh}>
+  <nav class="top-nav" data-localized-label="navigation" aria-label={siteData.ui.navigation[language]}>
     {siteData.nav.map((item) => (
       <a
-        href={item.href.startsWith('#') && !isHome ? `/${item.href}` : item.href}
+        href={item.href.startsWith('#') && isHome ? item.href : localizedPath(item.href.startsWith('#') ? `/${item.href}` : item.href, language)}
         class:list={{ 'nav-download': item.href === '#download' }}
-        aria-current={item.href.startsWith('/') && Astro.url.pathname.startsWith(item.href) ? 'true' : undefined}
+        aria-current={item.href.startsWith('/') && path.startsWith(item.href) ? 'true' : undefined}
       ><LocalizedText value={item.label} /></a>
     ))}
   </nav>

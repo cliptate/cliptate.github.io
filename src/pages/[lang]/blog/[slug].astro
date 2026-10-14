@@ -1,0 +1,12 @@
+---
+import ComparisonArticle from '../../../views/ComparisonArticle.astro';
+import { articles } from '../../../data/blog';
+import { defaultLanguage, languages } from '../../../data/languages';
+export function getStaticPaths() {
+  return languages.filter((language) => language.code !== defaultLanguage).flatMap((language) =>
+    articles.map((article) => ({ params: { lang: language.code, slug: article.slug }, props: { article } }))
+  );
+}
+const { article } = Astro.props;
+---
+<ComparisonArticle article={article} />

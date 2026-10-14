@@ -72,6 +72,7 @@ npm ci
 npm run dev
 npm run check
 npm run build
+npm run check:seo
 npm run preview
 ```
 
@@ -83,9 +84,15 @@ The `/blog/` index covers Cliptate vs Wispr Flow, MacWhisper, and Descript. Each
 
 ## Content maintenance
 
+Chinese keeps the existing root URLs. English, Japanese, Korean, and German use `/en/`, `/ja/`, `/ko/`, and `/de/`, including guides and articles. Each URL renders one language without JavaScript, with matching metadata, self-canonical, reciprocal hreflang, and sitemap alternates. Language links preserve the current page; browser language preferences do not override its URL.
+
+Page templates live in `src/views/`; `src/pages/` contains static route wrappers. After building, `npm run check:seo` checks every generated locale, internal links, anchors, images, core metadata, and structured-data relationships. Deployment runs type and SEO checks before publication. Submit `/sitemap-index.xml` in Google Search Console and Bing Webmaster Tools after deployment; ranking and indexing require observation in those services. FAQ JSON-LD describes the visible questions and answers; Google [retired FAQ rich results](https://developers.google.com/search/updates#june-2026), so it is not a Google rich-result tactic.
+
 Before changing claims, check the app source, docs/development.md, docs/cli.md, and release notes. Update all five languages. Distinguish local speech from optional online AI, GitHub from App Store builds, GUI from CLI exports, and released features from latest-source additions.
 
 - src/data/site.ts
+- src/views/
+- scripts/check-seo.py
 - src/data/guide.ts
 - src/data/blog.ts
 - src/pages/blog/

@@ -1,0 +1,351 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import LocalizedText from '../components/LocalizedText.astro';
+import { siteData } from '../data/site';
+import { guide } from '../data/guide';
+import { languages, languageForPath, localizedPath, serializeJson } from '../data/languages';
+import { blog } from '../data/blog';
+
+const language = languageForPath(Astro.url.pathname);
+const heroImages = Object.fromEntries(languages.map(({ code }) => [code, {
+  src: `/assets/screenshots/home.${code}.jpg`, alt: guide.screenshot.alt[code],
+}]));
+const structuredData = {
+  '@context': 'https://schema.org', '@type': 'SoftwareApplication',
+  '@id': new URL('#application', Astro.site).toString(),
+  name: 'Cliptate',
+  applicationCategory: 'MultimediaApplication', operatingSystem: 'macOS 15+',
+  processorRequirements: 'Apple Silicon (M1 or later)',
+  description: siteData.meta.description[language],
+  url: new URL(localizedPath('/', language), Astro.site).toString(),
+  screenshot: new URL(heroImages[language].src, Astro.site).toString(),
+  inLanguage: languages.find(({ code }) => code === language)!.htmlLang,
+  downloadUrl: guide.releasesUrl,
+  offers: { '@type': 'Offer', name: guide.download.direct.title[language], price: '0', priceCurrency: 'USD', url: guide.releasesUrl },
+  featureList: siteData.features.items.map((item) => item.title[language]),
+};
+---
+
+<BaseLayout title={siteData.meta.title} description={siteData.meta.description}>
+  <script type="application/ld+json" is:inline set:html={serializeJson(structuredData)} />
+  <main class="site-shell home-page" id="top">
+    <SiteHeader />
+
+    <section class="section hero">
+      <div class="hero-copy">
+        <div class="section-copy">
+          <p class="eyebrow">
+            <LocalizedText value={siteData.hero.kicker} />
+          </p>
+          <h1 class="hero-title">
+            <LocalizedText value={siteData.hero.title} />
+          </h1>
+          <p class="lede hero-lede">
+            <LocalizedText value={siteData.hero.description} />
+          </p>
+        </div>
+
+        <div class="cta-row">
+          <a
+            class="cta-primary"
+            href={guide.releasesUrl}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <LocalizedText value={siteData.hero.primaryCta} />
+          </a>
+          <a
+            class="cta-secondary"
+            href={localizedPath('/guide/', language)}
+          >
+            <LocalizedText value={siteData.hero.secondaryCta} />
+          </a>
+        </div>
+
+        <p class="hero-requirements"><LocalizedText value={blog.requirements} /></p>
+      </div>
+
+      <figure class="hero-product">
+        <img src={heroImages[language].src} alt={heroImages[language].alt} width="2560" height="1600" fetchpriority="high" decoding="async" />
+        <figcaption><LocalizedText value={guide.screenshot.caption} /></figcaption>
+      </figure>
+    </section>
+
+    <section class="section" id="features">
+      <div class="section-copy section-copy--narrow">
+        <p class="eyebrow">
+          <LocalizedText value={siteData.features.kicker} />
+        </p>
+        <h2 class="section-title">
+          <LocalizedText value={siteData.features.title} />
+        </h2>
+        <p class="lede">
+          <LocalizedText value={siteData.features.description} />
+        </p>
+      </div>
+
+      <div class="feature-grid">
+        {
+          siteData.features.items.map((feature) => (
+            <article class="feature-card">
+              <div class="feature-topline">
+                <span class="feature-index">{feature.index}</span>
+                <span class="feature-tag">
+                  <LocalizedText value={feature.tag} />
+                </span>
+              </div>
+              <h3>
+                <LocalizedText value={feature.title} />
+              </h3>
+              <p>
+                <LocalizedText value={feature.body} />
+              </p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="section voice-section" id="voice">
+      <div class="section-copy section-copy--narrow">
+        <p class="eyebrow">
+          <LocalizedText value={siteData.voice.kicker} />
+        </p>
+        <h2 class="section-title">
+          <LocalizedText value={siteData.voice.title} />
+        </h2>
+        <p class="lede">
+          <LocalizedText value={siteData.voice.description} />
+        </p>
+      </div>
+
+      <div class="voice-dual">
+        <article class="glass-panel voice-panel">
+          <div class="voice-panel-top">
+            <div class="voice-panel-icon-wrap" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="2" width="6" height="12" rx="3" />
+                <path d="M5 10a7 7 0 0 0 14 0" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+                <line x1="9" y1="21" x2="15" y2="21" />
+              </svg>
+            </div>
+            <div>
+              <p class="eyebrow">
+                <LocalizedText value={siteData.voice.dictation.kicker} />
+              </p>
+              <h3 class="voice-panel-heading">
+                <LocalizedText value={siteData.voice.dictation.title} />
+              </h3>
+            </div>
+          </div>
+          <p class="lede voice-panel-desc">
+            <LocalizedText value={siteData.voice.dictation.description} />
+          </p>
+          <ul class="check-list">
+            {
+              siteData.voice.dictation.points.map((point) => (
+                <li>
+                  <span class="check-mark" aria-hidden="true"></span>
+                  <LocalizedText value={point} />
+                </li>
+              ))
+            }
+          </ul>
+        </article>
+
+        <article class="glass-panel voice-panel">
+          <div class="voice-panel-top">
+            <div class="voice-panel-icon-wrap" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+              </svg>
+            </div>
+            <div>
+              <p class="eyebrow">
+                <LocalizedText value={siteData.voice.tts.kicker} />
+              </p>
+              <h3 class="voice-panel-heading">
+                <LocalizedText value={siteData.voice.tts.title} />
+              </h3>
+            </div>
+          </div>
+          <div class="tts-mode-grid">
+            {
+              siteData.voice.tts.modes.map((mode) => (
+                <div class="tts-mode-card">
+                  <span class="tts-mode-code">{mode.code}</span>
+                  <p class="tts-mode-title">
+                    <LocalizedText value={mode.title} />
+                  </p>
+                  <p class="tts-mode-body">
+                    <LocalizedText value={mode.body} />
+                  </p>
+                </div>
+              ))
+            }
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section workflow" id="workflow">
+      <div class="section-copy">
+        <p class="eyebrow">
+          <LocalizedText value={siteData.workflow.kicker} />
+        </p>
+        <h2 class="section-title">
+          <LocalizedText value={siteData.workflow.title} />
+        </h2>
+        <p class="lede">
+          <LocalizedText value={siteData.workflow.description} />
+        </p>
+      </div>
+
+      <div class="workflow-grid">
+        {
+          siteData.workflow.steps.map((step) => (
+            <article class="workflow-card">
+              <div class="workflow-index">{step.index}</div>
+              <h3>
+                <LocalizedText value={step.title} />
+              </h3>
+              <p>
+                <LocalizedText value={step.body} />
+              </p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="section dual-panel" id="privacy">
+      <article class="glass-panel">
+        <div class="section-copy section-copy--tight">
+          <p class="eyebrow">
+            <LocalizedText value={siteData.privacy.kicker} />
+          </p>
+          <h2 class="section-title">
+            <LocalizedText value={siteData.privacy.title} />
+          </h2>
+          <p class="lede">
+            <LocalizedText value={siteData.privacy.description} />
+          </p>
+        </div>
+
+        <ul class="check-list">
+          {
+            siteData.privacy.points.map((item) => (
+              <li>
+                <span class="check-mark" aria-hidden="true"></span>
+                <LocalizedText value={item} />
+              </li>
+            ))
+          }
+        </ul>
+      </article>
+
+      <article class="glass-panel" id="compatibility">
+        <div class="section-copy section-copy--tight">
+          <p class="eyebrow">
+            <LocalizedText value={siteData.compatibility.kicker} />
+          </p>
+          <h2 class="section-title">
+            <LocalizedText value={siteData.compatibility.title} />
+          </h2>
+          <p class="lede">
+            <LocalizedText value={siteData.compatibility.description} />
+          </p>
+        </div>
+
+        <div class="compatibility-grid">
+          {
+            siteData.compatibility.outputs.map((item) => (
+              <div class="compatibility-chip">
+                <span>{item.code}</span>
+                <LocalizedText value={item.label} />
+              </div>
+            ))
+          }
+        </div>
+
+        <div class="compatibility-note">
+          <LocalizedText value={siteData.compatibility.note} />
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="scenarios">
+      <div class="section-copy section-copy--narrow">
+        <p class="eyebrow">
+          <LocalizedText value={siteData.scenarios.kicker} />
+        </p>
+        <h2 class="section-title">
+          <LocalizedText value={siteData.scenarios.title} />
+        </h2>
+      </div>
+
+      <div class="scenario-grid">
+        {
+          siteData.scenarios.items.map((item) => (
+            <article class="scenario-card">
+              <p class="scenario-title">
+                <LocalizedText value={item.title} />
+              </p>
+              <p class="scenario-body">
+                <LocalizedText value={item.body} />
+              </p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="section resource-link" id="comparisons">
+      <div>
+        <p class="eyebrow"><LocalizedText value={blog.kicker} /></p>
+        <h2><LocalizedText value={blog.nav} /></h2>
+        <p class="lede"><LocalizedText value={blog.description} /></p>
+      </div>
+      <a class="cta-secondary" href={localizedPath('/blog/', language)}><LocalizedText value={blog.all} /> →</a>
+    </section>
+
+    <section class="section" id="download">
+      <div class="section-copy section-copy--narrow">
+        <p class="eyebrow"><LocalizedText value={guide.download.kicker} /></p>
+        <h2 class="section-title"><LocalizedText value={guide.download.title} /></h2>
+        <p class="lede"><LocalizedText value={guide.download.requirements} /></p>
+      </div>
+      <div class="dual-panel download-grid">
+        <article class="glass-panel guide-card download-card">
+          <h3><LocalizedText value={guide.download.direct.title} /></h3>
+          <p class="lede"><LocalizedText value={guide.download.direct.body} /></p>
+          <a class="cta-primary" href={guide.releasesUrl} target="_blank" rel="noreferrer"><LocalizedText value={guide.download.direct.cta} /></a>
+        </article>
+        <article class="glass-panel guide-card download-card">
+          <h3><LocalizedText value={guide.download.store.title} /></h3>
+          <p class="lede"><LocalizedText value={guide.download.store.body} /></p>
+          <a class="cta-secondary" href={siteData.appStoreUrl} target="_blank" rel="noreferrer"><LocalizedText value={guide.download.store.cta} /></a>
+        </article>
+      </div>
+      <a class="text-link setup-guide-link" href={localizedPath('/guide/', language)}><LocalizedText value={guide.page.read} /> →</a>
+    </section>
+
+    <footer class="site-footer">
+      <p>
+        <LocalizedText value={siteData.footer.tagline} />
+      </p>
+      <div class="footer-links">
+        <a href={localizedPath('/blog/', language)}><LocalizedText value={blog.nav} /></a>
+        <a href={siteData.githubUrl} target="_blank" rel="noreferrer">GitHub</a>
+        <a href={localizedPath('/guide/', language)}><LocalizedText value={guide.links.guide} /></a>
+        <a href={guide.releaseNotesUrl} target="_blank" rel="noreferrer"><LocalizedText value={guide.links.releases} /></a>
+        <a href={guide.issuesUrl} target="_blank" rel="noreferrer"><LocalizedText value={guide.links.feedback} /></a>
+        <a href={siteData.appStoreUrl} target="_blank" rel="noreferrer">App Store</a>
+      </div>
+    </footer>
+  </main>
+</BaseLayout>

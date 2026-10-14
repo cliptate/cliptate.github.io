@@ -72,6 +72,7 @@ npm ci
 npm run dev
 npm run check
 npm run build
+npm run check:seo
 npm run preview
 ```
 
@@ -83,9 +84,15 @@ npm run preview
 
 ## 内容维护
 
+中文保留原有根路径；英文、日文、韩文和德文分别使用 `/en/`、`/ja/`、`/ko/` 和 `/de/`，覆盖指南与文章。每个 URL 无需 JavaScript 即可呈现单一语言，包含对应元数据、自引用 canonical、双向 hreflang 和站点地图语言关系。语言链接保留当前页面，浏览器语言偏好不会覆盖 URL 指定的语言。
+
+页面模板位于 `src/views/`，`src/pages/` 负责静态路由。构建后运行 `npm run check:seo`，检查所有语言页面、站内链接、锚点、图片、核心元数据和结构化数据关系。部署会在发布前运行类型与 SEO 检查。上线后向 Google Search Console 与 Bing Webmaster Tools 提交 `/sitemap-index.xml`，通过这些平台观察收录和排名。FAQ JSON-LD 描述页面中的问答；Google [已停止显示 FAQ 富结果](https://developers.google.com/search/updates#june-2026)，这里不将其作为 Google 富结果优化手段。
+
 修改功能描述前，核对应用源码、docs/development.md、docs/cli.md 和版本说明。同步更新五种语言，区分本地语音与可选在线 AI、GitHub 与 App Store 渠道、界面与 CLI 输出，以及已发布与最新源码中的能力。
 
 - src/data/site.ts
+- src/views/
+- scripts/check-seo.py
 - src/data/guide.ts
 - src/data/blog.ts
 - src/pages/blog/

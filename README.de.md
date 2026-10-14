@@ -72,6 +72,7 @@ npm ci
 npm run dev
 npm run check
 npm run build
+npm run check:seo
 npm run preview
 ```
 
@@ -83,9 +84,15 @@ Unter `/blog/` stehen Vergleiche von Cliptate mit Wispr Flow, MacWhisper und Des
 
 ## Inhaltspflege
 
+Chinesisch behält die bisherigen Root-URLs. Englisch, Japanisch, Koreanisch und Deutsch verwenden `/en/`, `/ja/`, `/ko/` und `/de/`, auch für Anleitung und Artikel. Jede URL liefert statisches HTML in einer Sprache ohne JavaScript. Sprachlinks behalten die aktuelle Seite; Metadaten, Canonical, hreflang und Sitemap stimmen überein.
+
+Vorlagen liegen in `src/views/`, Routen in `src/pages/`. Nach dem Build prüft `npm run check:seo` Sprachseiten, Links, Bilder, zentrale Metadaten und strukturierte Daten. CI führt diese Prüfungen vor der Veröffentlichung aus. Danach `/sitemap-index.xml` in Search Console und Bing Webmaster Tools einreichen und Indexierung sowie Rankings beobachten. FAQ-JSON-LD beschreibt sichtbare Fragen und Antworten; Google hat FAQ-Rich-Results eingestellt.
+
 Vor Änderungen App-Quellcode, docs/development.md, docs/cli.md und Versionshinweise prüfen. Alle fünf Sprachen aktualisieren; lokale Sprachfunktionen und Online-KI, GitHub und App Store, GUI und CLI sowie veröffentlichte und neue Quellcode-Funktionen unterscheiden.
 
 - src/data/site.ts
+- src/views/
+- scripts/check-seo.py
 - src/data/guide.ts
 - src/data/blog.ts
 - src/pages/blog/

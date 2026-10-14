@@ -72,6 +72,7 @@ npm ci
 npm run dev
 npm run check
 npm run build
+npm run check:seo
 npm run preview
 ```
 
@@ -83,9 +84,15 @@ npm run preview
 
 ## 콘텐츠 관리
 
+중국어는 기존 루트 URL을 유지하고 영어, 일본어, 한국어, 독일어는 `/en/`, `/ja/`, `/ko/`, `/de/`를 사용합니다. 가이드와 글도 각 언어의 정적 HTML로 출력되어 JavaScript가 필요하지 않습니다. 언어 링크는 현재 페이지를 유지하며 canonical, hreflang, 사이트맵과 메타 정보를 일치시킵니다.
+
+템플릿은 `src/views/`, 라우트는 `src/pages/`에 있습니다. 빌드 후 `npm run check:seo`로 언어, 링크, 이미지, 주요 메타 정보와 구조화 데이터를 검증합니다. 게시 전 CI에서도 실행합니다. 게시 후 Search Console과 Bing Webmaster Tools에 `/sitemap-index.xml`을 제출하고 색인과 순위를 확인하세요. FAQ JSON-LD는 표시된 질문과 답변을 설명합니다. Google FAQ 리치 결과는 종료되었습니다.
+
 기능 설명을 수정하기 전에 앱 소스, docs/development.md, docs/cli.md, 릴리스 노트를 확인하세요. 다섯 언어를 업데이트하고 로컬 음성과 온라인 AI, GitHub와 App Store, GUI와 CLI, 출시 기능과 최신 소스 기능을 구분하세요.
 
 - src/data/site.ts
+- src/views/
+- scripts/check-seo.py
 - src/data/guide.ts
 - src/data/blog.ts
 - src/pages/blog/

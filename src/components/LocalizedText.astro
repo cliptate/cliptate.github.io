@@ -1,6 +1,6 @@
 ---
 import type { LocalizedString } from '../data/site';
-import { languages } from '../data/languages';
+import { languages, languageForPath } from '../data/languages';
 
 type Props = {
   value: LocalizedString;
@@ -10,8 +10,10 @@ type Props = {
 
 const { value, as = 'span', class: className } = Astro.props as Props;
 const Tag = as;
+const language = languageForPath(Astro.url.pathname);
+const htmlLang = languages.find(({ code }) => code === language)!.htmlLang;
 ---
 
 <Tag class={className}>
-  {languages.map(({ code, htmlLang }) => <span data-locale={code} lang={htmlLang}>{value[code]}</span>)}
+  <span data-locale={language} lang={htmlLang}>{value[language]}</span>
 </Tag>
