@@ -6,9 +6,9 @@ Quellcode der [Cliptate-Website](https://cliptate.github.io). Die macOS-App lieg
 
 Transkribieren, Pausen schneiden, Untertitel bearbeiten und Sprache am Mac erzeugen. KI-Korrektur und Übersetzung bei Bedarf aktivieren. Die kostenlose GitHub-Version bietet alle Modelle, Pro-Funktionen und eine CLI.
 
-![Cliptate-Startseite für KI-Schnitt auf Deutsch mit hellgrauem Hintergrund](public/assets/screenshots/home.de.jpg)
+![Cliptate-Startseite auf Deutsch mit Diktierstatistik und Aktivitätsverlauf](public/assets/screenshots/home.de.jpg)
 
-*Die helle Ansicht verwendet einen hellgrauen Seitenhintergrund.*
+*Die Startseite zeigt die Diktierstatistik, die Aktivität der letzten 12 Monate und Aufzeichnungen nach Quelle.*
 
 ## Kernfunktionen
 

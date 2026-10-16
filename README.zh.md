@@ -6,9 +6,9 @@
 
 在 Mac 上完成转写、去停顿、字幕编辑和语音合成，按需启用 AI 纠错与翻译。免费 GitHub 版开放全部模型和 Pro 功能，也能通过 CLI 接入脚本。
 
-![Cliptate AI 剪辑首页（简体中文），浅灰色背景](public/assets/screenshots/home.zh.jpg)
+![Cliptate 简体中文首页，显示听写统计和使用记录](public/assets/screenshots/home.zh.jpg)
 
-*浅色外观采用浅灰色页面背景。*
+*首页展示累计听写统计、最近 12 个月的使用记录和记录来源。*
 
 ## 核心能力
 

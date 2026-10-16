@@ -6,9 +6,9 @@
 
 Mac에서 전사, 무음 제거, 자막 편집, 음성 합성을 처리하세요. 필요할 때 AI 교정과 번역을 사용하세요. 무료 GitHub 버전은 모든 모델과 Pro 기능, 스크립트용 CLI를 제공합니다.
 
-![연한 회색 배경의 Cliptate AI 컷 홈 화면 (한국어)](public/assets/screenshots/home.ko.jpg)
+![받아쓰기 통계와 활동 기록을 보여주는 Cliptate 한국어 홈 화면](public/assets/screenshots/home.ko.jpg)
 
-*라이트 모드의 페이지 배경은 연한 회색입니다.*
+*홈에서 누적 받아쓰기 통계, 최근 12개월의 활동, 유형별 기록을 확인할 수 있습니다.*
 
 ## 핵심 기능
 

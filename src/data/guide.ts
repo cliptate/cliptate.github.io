@@ -22,8 +22,8 @@ export const guide = {
   releaseNotesUrl: 'https://github.com/cliptate/cliptate/tree/main/docs/release-notes',
   screenshot: {
     title: l('从一个原生 Mac 工作台开始。', 'Start in one native Mac workspace.', 'ひとつのネイティブ Mac アプリから。', '하나의 네이티브 Mac 작업 공간에서 시작하세요.', 'Ein nativer Mac-Arbeitsbereich als Ausgangspunkt.'),
-    caption: l('浅灰色的原生 Mac 工作台，集成 AI 剪辑、语音转文字、文字转语音、模型、历史和词典。', 'A native Mac workspace with a light-gray background for AI Cut, Voice To Text, Text To Speech, models, history, and vocabulary.', 'ライトグレーのネイティブ Mac ワークスペースに、AI カット、音声入力、音声合成、モデル、履歴、辞書を集約。', '연한 회색 배경의 네이티브 Mac 작업 공간에서 AI 편집, 음성 전사, 음성 합성, 모델, 기록, 사전을 사용하세요.', 'Ein nativer Mac-Arbeitsbereich mit hellgrauem Hintergrund für KI-Schnitt, Sprache zu Text, Text zu Sprache, Modelle, Verlauf und Wörterbuch.'),
-    alt: l('Cliptate 简体中文浅色首页，显示浅灰色背景、AI 剪辑导入区和功能侧栏', 'Cliptate English home screen in light appearance, with a light-gray background, AI Cut import area, and feature sidebar', 'Cliptate 日本語ホーム画面のライトグレーの背景、AI カット取り込みエリア、機能サイドバー', '연한 회색 배경, AI 편집 가져오기 영역, 기능 사이드바가 있는 Cliptate 한국어 라이트 모드 홈 화면', 'Cliptate-Startseite auf Deutsch in heller Ansicht mit hellgrauem Hintergrund, KI-Schnitt-Importbereich und Funktionsleiste'),
+    caption: l('首页展示累计听写统计、最近 12 个月的使用记录和记录来源。', 'Home shows dictation totals, activity over the last 12 months, and records by source.', 'ホームには音声入力の累計、過去 12 か月のアクティビティ、記録の内訳が表示されます。', '홈에서 누적 받아쓰기 통계, 최근 12개월의 활동, 유형별 기록을 확인할 수 있습니다.', 'Die Startseite zeigt die Diktierstatistik, die Aktivität der letzten 12 Monate und Aufzeichnungen nach Quelle.'),
+    alt: l('Cliptate 简体中文首页，显示听写统计和使用记录', 'Cliptate Home dashboard in English with dictation statistics and activity history', '音声入力の統計とアクティビティを表示する Cliptate 日本語ホーム画面', '받아쓰기 통계와 활동 기록을 보여주는 Cliptate 한국어 홈 화면', 'Cliptate-Startseite auf Deutsch mit Diktierstatistik und Aktivitätsverlauf'),
   },
   models: {
     kicker: l('模型与日常使用', 'Models and everyday use', 'モデルと日々の作業', '모델과 일상 작업', 'Modelle und tägliche Arbeit'),
