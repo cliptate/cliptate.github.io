@@ -88,7 +88,7 @@ npm run preview
 
 ## 콘텐츠 관리
 
-`/changelog/`와 `/changelog/<tag>/`에서 v1.0–v1.3를 다섯 언어로 제공합니다. 탐색 메뉴와 홈 푸터에 링크가 있으며 기능 변화, 업그레이드 안내, 제한, GitHub 원문과 영어 검증·커밋 기록을 확인할 수 있습니다. 정적 HTML, Article/ItemList, 언어별 탐색 경로와 실제 내용 수정일을 사용하는 sitemap `lastmod`를 생성합니다.
+`/changelog/`와 `/changelog/<tag>/`에서 v1.0–v1.4를 다섯 언어로 제공합니다. 탐색 메뉴와 홈 푸터에 링크가 있으며 기능 변화, 업그레이드 안내, 제한, GitHub 원문과 영어 검증·커밋 기록을 확인할 수 있습니다. 정적 HTML, Article/ItemList, 언어별 탐색 경로와 실제 내용 수정일을 사용하는 sitemap `lastmod`를 생성합니다.
 
 정식 릴리스를 추가하려면 `cliptate/cliptate/docs/release-notes/<tag>.md`와 GitHub Release를 확인하고 `src/data/release-metadata.json` 및 `src/data/changelog.ts`의 모든 언어를 갱신하세요. `date`는 원문 버전 날짜, `published`는 웹사이트 최초 게시일, `updated`는 내용 수정일입니다. 편집할 때 `published`를 유지하고 실질적 변경 시에만 `updated`를 바꾸세요. 경로, 언어 링크, 정렬, 스키마와 사이트맵은 자동 생성됩니다. Nightly와 미출시 기능은 제외합니다. 릴리스 기록은 명시적으로 관리하며 실행 시 조회나 자동 동기화를 하지 않습니다.
 

@@ -88,7 +88,7 @@ Unter `/blog/` stehen Vergleiche von Cliptate mit Wispr Flow, MacWhisper und Des
 
 ## Inhaltspflege
 
-`/changelog/` und `/changelog/<tag>/` zeigen v1.0–v1.3 in fünf Sprachen. Navigation und Startseiten-Footer verlinken das Archiv. Details enthalten Funktionen, Upgrade-Hinweise, Grenzen, GitHub-Originale und englische Prüf-/Commit-Protokolle. Statisches HTML, Article/ItemList, lokalisierte Breadcrumbs und sitemap `lastmod` mit dem tatsächlichen Änderungsdatum werden erzeugt.
+`/changelog/` und `/changelog/<tag>/` zeigen v1.0–v1.4 in fünf Sprachen. Navigation und Startseiten-Footer verlinken das Archiv. Details enthalten Funktionen, Upgrade-Hinweise, Grenzen, GitHub-Originale und englische Prüf-/Commit-Protokolle. Statisches HTML, Article/ItemList, lokalisierte Breadcrumbs und sitemap `lastmod` mit dem tatsächlichen Änderungsdatum werden erzeugt.
 
 Für eine neue stabile Veröffentlichung `cliptate/cliptate/docs/release-notes/<tag>.md` und das GitHub Release prüfen, Metadaten in `src/data/release-metadata.json` ergänzen und alle Felder in `src/data/changelog.ts` übersetzen. `date` ist das Versionsdatum im Original, `published` die erste Website-Veröffentlichung, `updated` das Änderungsdatum. `published` bei Bearbeitung beibehalten; `updated` nur bei wesentlichen Änderungen anpassen. Routen, Sprachlinks, Reihenfolge, Schema und Sitemap entstehen automatisch. Nightly und unveröffentlichte Funktionen bleiben außerhalb des Archivs. Veröffentlichungen werden ausdrücklich gepflegt, ohne automatische Synchronisierung oder Abruf zur Laufzeit.
 

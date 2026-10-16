@@ -88,7 +88,7 @@ npm run preview
 
 ## コンテンツ管理
 
-`/changelog/` と `/changelog/<tag>/` は v1.0–v1.3 を5言語で掲載します。ナビゲーションとホームのフッターから移動でき、機能、更新手順、制限、GitHub 原文、英語の検証・コミット記録を確認できます。静的 HTML、Article/ItemList、各言語のパンくず、実際の内容更新日に基づく sitemap `lastmod` を生成します。
+`/changelog/` と `/changelog/<tag>/` は v1.0–v1.4 を5言語で掲載します。ナビゲーションとホームのフッターから移動でき、機能、更新手順、制限、GitHub 原文、英語の検証・コミット記録を確認できます。静的 HTML、Article/ItemList、各言語のパンくず、実際の内容更新日に基づく sitemap `lastmod` を生成します。
 
 正式リリースを追加するときは `cliptate/cliptate/docs/release-notes/<tag>.md` と GitHub Release を確認し、`src/data/release-metadata.json` と `src/data/changelog.ts` の全言語を更新します。`date` は原文のバージョン日付、`published` はサイトでの初回公開日、`updated` は内容の変更日です。編集時は `published` を維持し、実質的な変更だけで `updated` を更新します。ルート・言語リンク・並び順・構造化データ・サイトマップは自動生成されます。Nightly と未公開機能は含めず、リリースの自動同期や実行時取得は行いません。
 

@@ -47,6 +47,89 @@ interface ReleaseContent {
 // Editorial translations of docs/release-notes/<tag>.md in cliptate/cliptate.
 // Only published stable versions belong here; never substitute main or Nightly.
 const content = {
+  'v1.4': {
+    "title": {
+      "zh": "首页统计、年度活动与原生界面改进",
+      "en": "Home statistics, annual activity, and native controls",
+      "ja": "ホーム統計、年間アクティビティと操作画面の改善",
+      "ko": "홈 통계, 연간 활동과 네이티브 화면 개선",
+      "de": "Startseitenstatistik, Jahresaktivität und native Bedienelemente"
+    },
+    "metaTitle": {
+      "zh": "Cliptate v1.4 更新日志 | 首页统计、活动热力图与听写改进",
+      "en": "Cliptate v1.4 Changelog | Home Statistics & Dictation",
+      "ja": "Cliptate v1.4 更新履歴 | ホーム統計と音声入力の改善",
+      "ko": "Cliptate v1.4 업데이트 | 홈 통계와 받아쓰기 개선",
+      "de": "Cliptate v1.4 Updates | Startseitenstatistik & Diktat"
+    },
+    "summary": {
+      "zh": "Cliptate v1.4 新增首页统计与过去 12 个月的活动热力图，优化历史记录和原生界面操作，并支持在其他应用中按 Escape 取消当前听写。",
+      "en": "Cliptate v1.4 adds a Home dashboard with dictation statistics and a rolling 12-month activity heatmap, refines history and native controls, and lets you cancel dictation with Escape from another app.",
+      "ja": "Cliptate v1.4 は音声入力の統計と過去12か月のアクティビティをホームに追加。履歴と操作画面を改善し、他のアプリからも Escape で音声入力を中止できます。",
+      "ko": "Cliptate v1.4는 홈에 받아쓰기 통계와 최근 12개월 활동 히트맵을 추가합니다. 기록과 네이티브 컨트롤을 개선하고 다른 앱에서도 Escape로 받아쓰기를 취소할 수 있습니다.",
+      "de": "Cliptate v1.4 ergänzt die Startseite um Diktatstatistiken und eine Aktivitätsübersicht der letzten zwölf Monate. Verlauf und Bedienelemente wurden überarbeitet; Escape bricht Diktate auch aus anderen Apps ab."
+    },
+    "changes": [
+      {
+        "zh": "首页：查看累计听写时长、生成字数、预计节省时间、过去 12 个月的活动热力图，以及按来源分类的记录数量。",
+        "en": "Home: See all-time dictation duration, generated words, estimated time saved, a rolling 12-month activity heatmap, and record counts by source.",
+        "ja": "ホーム：累計音声入力時間、生成単語数、推定節約時間、過去12か月のアクティビティと種類別の記録数を確認できます。",
+        "ko": "홈: 누적 받아쓰기 시간, 생성 단어 수, 예상 절약 시간, 최근 12개월 활동 히트맵과 출처별 기록 수를 확인하세요.",
+        "de": "Startseite: Gesamte Diktatdauer, erzeugte Wörter, geschätzte Zeitersparnis, Aktivität der letzten zwölf Monate und Einträge nach Quelle ansehen."
+      },
+      {
+        "zh": "历史：正常清理过期文字和录音后仍保留活动计数。列表与详情布局更稳定，可按来源清空历史，并集中使用复制、播放、重新转写和 Finder 定位操作。",
+        "en": "History: Activity counts survive normal transcript and audio expiry. A steadier list/detail layout groups copy, playback, re-transcription, and Finder actions; history can be cleared by source.",
+        "ja": "履歴：テキストや録音の保存期限後も活動件数を保持します。一覧と詳細の表示を安定させ、コピー、再生、再文字起こし、Finder 操作を集約。種類別に履歴を消去できます。",
+        "ko": "기록: 전사 텍스트와 녹음이 보관 기한으로 삭제되어도 활동 수는 유지됩니다. 목록과 상세 화면을 안정화하고 복사, 재생, 재전사, Finder 작업을 모았습니다. 출처별 삭제도 가능합니다.",
+        "de": "Verlauf: Aktivitätszahlen bleiben nach dem regulären Ablauf von Text und Audio erhalten. Stabilere Listen- und Detailansichten bündeln Kopieren, Wiedergabe, erneute Transkription und Finder-Aktionen. Einträge lassen sich nach Quelle löschen."
+      },
+      {
+        "zh": "听写：免费直接下载版可在任意应用中按 Escape 取消当前听写，包括从界面启动的录音和模型准备阶段；修复启动听写时的麦克风回调崩溃。",
+        "en": "Dictation: In the free direct-download build, Escape cancels active dictation from any app, including recordings started from the interface and during model preparation. Fixed a microphone callback crash when starting dictation.",
+        "ja": "音声入力：無料の直接配布版では、画面から開始した録音やモデル準備中も、任意のアプリから Escape で中止できます。開始時のマイクコールバックによるクラッシュも修正しました。",
+        "ko": "받아쓰기: 무료 직접 다운로드 버전에서는 화면에서 시작한 녹음과 모델 준비 중인 세션도 모든 앱에서 Escape로 취소할 수 있습니다. 받아쓰기 시작 시 마이크 콜백 충돌도 수정했습니다.",
+        "de": "Diktat: Im kostenlosen Direktdownload bricht Escape aktive Diktate aus jeder App ab, auch bei Aufnahmen über die Oberfläche und während der Modellvorbereitung. Ein Absturz im Mikrofon-Callback beim Diktatstart wurde behoben."
+      },
+      {
+        "zh": "工作区：优化侧边栏导航、原生控件、听写与语音生成页面、模型与设置页面，以及剪辑和导出面板；更新五种界面语言和首页截图。",
+        "en": "Workspace: Refined sidebar navigation, native controls, dictation and speech generation pages, models/settings, and editing/export panels. All five interface languages and Home screenshots are updated.",
+        "ja": "画面：サイドバー、標準コントロール、音声入力・音声生成、モデル・設定、編集・書き出しパネルを改善。5言語の表示とホーム画像も更新しました。",
+        "ko": "작업 공간: 사이드바 탐색, 네이티브 컨트롤, 받아쓰기·음성 생성, 모델·설정, 편집·내보내기 패널을 개선했습니다. 다섯 언어 화면과 홈 스크린샷도 갱신했습니다.",
+        "de": "Arbeitsbereich: Überarbeitete Seitenleiste, native Bedienelemente, Diktat- und Sprachgenerierungsseiten, Modelle, Einstellungen sowie Schnitt- und Exportbereiche. Alle fünf Oberflächensprachen und Startseitenbilder wurden aktualisiert."
+      },
+      {
+        "zh": "构建：应用、CLI 与共享 Core 统一使用 SwiftPM 构建，保留 Release 链接优化和符号裁剪。",
+        "en": "Builds: App, CLI, and shared Core now use one SwiftPM graph, retaining Release linker optimization and symbol stripping.",
+        "ja": "ビルド：アプリ、CLI、共通 Core を単一の SwiftPM 構成に統一。Release のリンク最適化とシンボル除去を維持します。",
+        "ko": "빌드: 앱, CLI와 공유 Core를 하나의 SwiftPM 구성으로 통합하고 Release 링크 최적화와 심볼 제거를 유지했습니다.",
+        "de": "Builds: App, CLI und gemeinsamer Core nutzen einen SwiftPM-Abhängigkeitsgraphen. Linker-Optimierung und Symbolbereinigung für Releases bleiben erhalten."
+      }
+    ],
+    "upgrade": [
+      {
+        "zh": "需要 Apple Silicon 和 macOS 15+。应用内更新，或退出 Cliptate 后用 DMG 替换；校验 SHA-256，使用 CLI 前重启应用。",
+        "en": "Requires Apple Silicon and macOS 15+. Update in the app or quit Cliptate and replace it via DMG. Verify SHA-256 and restart before using the CLI.",
+        "ja": "Apple Silicon と macOS 15 以降が必要です。アプリ内で更新するか、終了して DMG で置き換えます。SHA-256 を確認し、CLI 使用前に再起動してください。",
+        "ko": "Apple Silicon과 macOS 15 이상이 필요합니다. 앱에서 업데이트하거나 종료 후 DMG로 교체하세요. SHA-256을 확인하고 CLI 사용 전 다시 시작하세요.",
+        "de": "Erfordert Apple Silicon und macOS 15+. In der App aktualisieren oder Cliptate beenden und per DMG ersetzen. SHA-256 prüfen und vor CLI-Nutzung neu starten."
+      },
+      {
+        "zh": "保留现有设置、历史、模型缓存和正式版应用身份。现存历史自动生成活动元数据，无需手动迁移；免费 GitHub 版的全局 Escape 需要辅助功能权限。",
+        "en": "Existing settings, history, model caches, and production identity are retained. Remaining history automatically seeds activity metadata; no manual migration is needed. Global Escape requires Accessibility permission in the free GitHub build.",
+        "ja": "設定、履歴、モデルキャッシュ、製品版の識別情報を保持します。残存する履歴から活動データを自動生成し、手動移行は不要です。無料 GitHub 版のグローバル Escape にはアクセシビリティ権限が必要です。",
+        "ko": "기존 설정, 기록, 모델 캐시와 정식 앱 식별자를 유지합니다. 남아 있는 기록에서 활동 데이터를 자동 생성하므로 수동 이전은 필요 없습니다. 무료 GitHub 버전의 전역 Escape에는 손쉬운 사용 권한이 필요합니다.",
+        "de": "Einstellungen, Verlauf, Modell-Caches und Produktividentität bleiben erhalten. Vorhandene Einträge erzeugen automatisch Aktivitätsdaten; keine manuelle Migration nötig. Globales Escape benötigt im kostenlosen GitHub-Build die Bedienungshilfen-Berechtigung."
+      }
+    ],
+    "limitations": {
+      "zh": "活动统计无法恢复已过期或已删除的记录；节省时间为估算值。CLI 请求仍不创建历史，App Store 快捷键限制不变。真实模型、麦克风和完整更新安装仍需人工验证。",
+      "en": "Activity cannot recover expired or deleted records; time saved is an estimate. CLI requests still create no history. App Store shortcut limits are unchanged. Real-model, microphone, and end-to-end update checks remain manual.",
+      "ja": "期限切れ・削除済みの記録は復元できず、節約時間は推定値です。CLI は履歴を作成せず、App Store のショートカット制限も変わりません。実モデル、マイク、更新インストール全体の手動検証は引き続き必要です。",
+      "ko": "만료되거나 삭제된 기록은 복원할 수 없으며 절약 시간은 추정치입니다. CLI는 기록을 만들지 않고 App Store 단축키 제한도 그대로입니다. 실제 모델, 마이크와 전체 업데이트 설치는 수동 검증이 필요합니다.",
+      "de": "Abgelaufene oder gelöschte Einträge lassen sich nicht wiederherstellen; die Zeitersparnis ist geschätzt. CLI-Anfragen erzeugen weiterhin keinen Verlauf. App-Store-Tastenkürzel bleiben eingeschränkt. Modell-, Mikrofon- und vollständige Update-Tests sind weiterhin manuell erforderlich."
+    }
+  },
   'v1.3': {
     title: { zh: '浅灰色界面、更精简的下载与官网更新说明', en: 'A clearer light appearance and leaner downloads', ja: '明るいグレーの画面とダウンロードの軽量化', ko: '밝은 회색 화면과 더 간결한 다운로드', de: 'Hellgraue Oberfläche und schlankere Downloads' },
     metaTitle: { zh: 'Cliptate v1.3 更新日志 | 浅灰色界面与安装包优化', en: 'Cliptate v1.3 Changelog | Light Appearance & Downloads', ja: 'Cliptate v1.3 更新履歴 | グレーの画面と配布パッケージ改善', ko: 'Cliptate v1.3 업데이트 | 밝은 화면과 설치 패키지 개선', de: 'Cliptate v1.3 Updates | Helle Oberfläche & Downloads' },
