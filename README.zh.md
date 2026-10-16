@@ -4,7 +4,7 @@
 
 这是 [Cliptate 官方网站](https://cliptate.github.io) 的源码仓库。macOS 应用源码在 [cliptate/cliptate](https://github.com/cliptate/cliptate)。网站内容以应用主分支的代码和文档为依据，安装包的功能以对应 Release 为准。
 
-在 Mac 上完成转写、去停顿、字幕编辑和语音合成，按需启用 AI 纠错与翻译。免费 GitHub 版开放全部模型和 Pro 功能，也能通过 CLI 接入脚本。
+在 Mac 上完成转写、去停顿、字幕编辑和语音合成，按需启用 AI 纠错与翻译。免费 GitHub 版开放全部模型和功能，也能通过 CLI 接入脚本。
 
 ![Cliptate 简体中文首页，显示听写统计和使用记录](public/assets/screenshots/home.zh.jpg)
 
@@ -23,8 +23,7 @@
 
 需要 Apple Silicon（M1 及更新芯片）和 macOS 15 或更新版本。模型大小与内存需求取决于所选模型，请预留足够空间。
 
-- **[GitHub 免费版](https://github.com/cliptate/cliptate/releases)** — 全部模型与 Pro 功能免费开放，无需订阅。提供原生 CLI 和应用内更新；可在授权后使用辅助功能支持的文本输入与全局快捷键。在线 AI 服务的费用由服务商另行收取。
-- **[App Store 版](https://apps.apple.com/cn/app/%E5%89%AA%E8%A8%80-cliptate/id6754441004?mt=12)** — 通过 App Store 获取的版本采用订阅策略和沙盒限制，不包含 CLI。听写文本通过复制粘贴使用，快捷键行为也受该渠道限制；功能与价格以商店页面为准。
+- **[GitHub 免费版](https://github.com/cliptate/cliptate/releases)** — 全部模型与功能免费开放，无需订阅。提供原生 CLI 和应用内更新；可在授权后使用辅助功能支持的文本输入与全局快捷键。在线 AI 服务的费用由服务商另行收取。
 - **[Nightly 预览构建](https://github.com/cliptate/cliptate/releases/tag/nightly)** — Nightly 随主分支定期构建，可能包含尚未正式发布的改动。请查看对应构建说明确认功能。
 
 1. 下载 Release 中的 Cliptate.dmg，将应用拖入「应用程序」。可用同页的 SHA-256 文件校验下载。
@@ -96,7 +95,7 @@ npm run preview
 
 页面模板位于 `src/views/`，`src/pages/` 负责静态路由。构建后运行 `npm run check:seo`，检查所有语言页面、站内链接、锚点、图片、核心元数据和结构化数据关系。部署会在发布前运行类型与 SEO 检查。上线后向 Google Search Console 与 Bing Webmaster Tools 提交 `/sitemap-index.xml`，通过这些平台观察收录和排名。FAQ JSON-LD 描述页面中的问答；Google [已停止显示 FAQ 富结果](https://developers.google.com/search/updates#june-2026)，这里不将其作为 Google 富结果优化手段。
 
-修改功能描述前，核对应用源码、docs/development.md、docs/cli.md 和版本说明。同步更新五种语言，区分本地语音与可选在线 AI、GitHub 与 App Store 渠道、界面与 CLI 输出，以及已发布与最新源码中的能力。
+修改功能描述前，核对应用源码、docs/development.md、docs/cli.md 和版本说明。同步更新五种语言，区分本地语音与可选在线 AI、界面与 CLI 输出，以及已发布与最新源码中的能力。
 
 - src/data/site.ts
 - src/views/

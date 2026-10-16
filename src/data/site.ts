@@ -7,7 +7,6 @@ export const siteData = {
     highlights: { zh: '亮点', en: 'Highlights', ja: '特長', ko: '주요 특징', de: 'Highlights' },
     differentiators: { zh: '核心优势', en: 'Key differentiators', ja: '主な強み', ko: '핵심 장점', de: 'Zentrale Vorteile' },
   },
-  appStoreUrl: 'https://apps.apple.com/cn/app/%E5%89%AA%E8%A8%80-cliptate/id6754441004?mt=12',
   githubUrl: "https://github.com/cliptate/cliptate",
   meta: {
     title: {
@@ -698,11 +697,11 @@ export const siteData = {
           de: "Eigenes Wörterbuch für präzise Fachbegriffe",
         },
         {
-          zh: "未授权辅助功能或使用 App Store 版时，复制后粘贴文本",
-          en: "Without Accessibility permission, or in App Store builds, copy and paste text",
-          ja: "アクセシビリティ未許可、または App Store 版ではコピーして貼り付け",
-          ko: "손쉬운 사용 권한이 없거나 App Store 버전이면 복사 후 붙여넣기",
-          de: "Ohne Bedienungshilfen-Berechtigung oder in App-Store-Versionen Text kopieren und einfügen",
+          zh: "未授权辅助功能时，复制后粘贴文本",
+          en: "Without Accessibility permission, copy and paste text",
+          ja: "アクセシビリティ未許可時はコピーして貼り付け",
+          ko: "손쉬운 사용 권한이 없으면 복사 후 붙여넣기",
+          de: "Ohne Bedienungshilfen-Berechtigung Text kopieren und einfügen",
         },
       ],
     },

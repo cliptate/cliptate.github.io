@@ -42,6 +42,7 @@ const structuredData = {
         </p>
       </header>
       <div class="article-body">
+        <p class="article-note"><LocalizedText value={changelog.scope} /></p>
         <section class="article-section" aria-labelledby="changes-heading">
           <h2 id="changes-heading"><LocalizedText value={changelog.changes} /></h2>
           <ul class="release-changes">{release.changes.map((change) => <li><LocalizedText value={change} /></li>)}</ul>

@@ -15,6 +15,7 @@ export const blog = {
   home: l('首页', 'Home', 'ホーム', '홈', 'Startseite'),
   updated: l('资料核对日期', 'Sources reviewed', '資料確認日', '자료 확인일', 'Quellen geprüft'),
   date: '2026-10-12',
+  modified: '2026-10-16',
   methodTitle: l('我们如何比较', 'How we compare', '比較の方針', '비교 방식', 'So vergleichen wir'),
   method: l('由 Cliptate 团队整理，比较功能与工作流，不做未经实测的准确率或速度排名。竞品信息链接至官方资料；价格与功能可能变化。Cliptate 内容依据主分支，安装包功能请以所选 Release 为准。', 'Written by the Cliptate team. These are feature and workflow comparisons, without untested accuracy or speed rankings. Competitor claims link to official sources; plans and features can change. Cliptate coverage follows main; check your chosen Release for packaged features.', 'Cliptate チームによる機能と作業手順の比較です。未検証の精度・速度ランキングは掲載しません。他社情報は公式資料にリンクしています。料金と機能は変更される場合があります。Cliptate は main の内容を扱い、配布版の機能は Release をご確認ください。', 'Cliptate 팀이 작성한 기능과 작업 흐름 비교입니다. 실측하지 않은 정확도나 속도 순위는 제시하지 않습니다. 경쟁 제품 정보는 공식 자료로 연결되며 요금제와 기능은 바뀔 수 있습니다. Cliptate는 main 기준이며 설치 버전은 해당 Release를 확인하세요.', 'Vom Cliptate-Team verfasst. Wir vergleichen Funktionen und Arbeitsabläufe ohne ungeprüfte Genauigkeits- oder Geschwindigkeitsranglisten. Angaben zu anderen Produkten verweisen auf offizielle Quellen; Angebote können sich ändern. Cliptate-Angaben beziehen sich auf main; für Installationspakete gilt das gewählte Release.'),
   table: l('关键差异一览', 'Key differences', '主な違い', '주요 차이', 'Die wichtigsten Unterschiede'),
@@ -28,7 +29,7 @@ export const blog = {
   related: l('继续比较', 'Keep comparing', 'ほかの比較', '다른 비교 보기', 'Weitere Vergleiche'),
   download: l('免费下载 Cliptate', 'Download Cliptate free', 'Cliptate を無料で入手', 'Cliptate 무료 다운로드', 'Cliptate kostenlos laden'),
   requirements: l('Apple Silicon · macOS 15+ · 免费 GitHub 版', 'Apple Silicon · macOS 15+ · Free GitHub build', 'Apple Silicon · macOS 15+ · 無料 GitHub 版', 'Apple Silicon · macOS 15+ · 무료 GitHub 버전', 'Apple Silicon · macOS 15+ · Kostenlose GitHub-Version'),
-  channelNote: l('Cliptate 的 GitHub 版免费开放全部模型和 Pro 功能；App Store 版采用订阅，不包含 CLI，听写使用复制粘贴。在线 AI 服务可能另收费。', 'Cliptate’s GitHub build includes all models and Pro features free. The App Store build uses subscriptions, omits the CLI, and delivers dictation through copy and paste. Online AI services may charge separately.', 'Cliptate の GitHub 版は全モデルと Pro 機能が無料です。App Store 版はサブスクリプション制で CLI を含まず、音声入力はコピー＆ペーストで渡します。オンライン AI は別料金の場合があります。', 'Cliptate GitHub 버전은 모든 모델과 Pro 기능이 무료입니다. App Store 버전은 구독 방식이며 CLI가 없고 받아쓰기는 복사하여 붙여넣습니다. 온라인 AI 서비스 비용은 별도일 수 있습니다.', 'Cliptates GitHub-Version enthält alle Modelle und Pro-Funktionen kostenlos. Die App-Store-Version nutzt Abos, enthält keine CLI und überträgt Diktate per Kopieren und Einfügen. Online-KI kann zusätzliche Kosten verursachen.'),
+  channelNote: l("全部模型与功能免费开放，无需订阅或购买。提供原生 CLI 和应用内更新；可在授权后使用辅助功能支持的文本输入与全局快捷键。在线 AI 服务的费用由服务商另行收取。", "All models and features are free, with no subscription or purchase. Includes the native CLI and in-app updates, plus Accessibility-backed text insertion and global shortcuts with permission. Online AI providers charge separately.", "全モデルと機能を無料で利用でき、サブスクリプションや購入は不要です。ネイティブ CLI とアプリ内更新、許可後のテキスト挿入・グローバルショートカットに対応。オンライン AI の料金はサービス側で別途発生します。", "모든 모델과 기능을 구독이나 구매 없이 무료로 제공합니다. 네이티브 CLI, 앱 내 업데이트, 권한 허용 후 텍스트 삽입과 글로벌 단축키를 지원합니다. 온라인 AI 제공업체 요금은 별도입니다.", "Alle Modelle und Funktionen sind kostenlos, ohne Abo oder Kauf. Mit nativer CLI, Updates in der App und Texteingabe sowie globalen Tastaturkürzeln nach erteilter Berechtigung. Online-KI-Anbieter berechnen separat."),
 };
 
 interface Source { label: string; url: string }
@@ -56,7 +57,7 @@ export const cliptateSources: Source[] = [
 ];
 
 const localSpeech = l('模型下载后在 Mac 本地转写；在线 AI 纠错单独配置。', 'Transcribe locally after model download; configure online AI correction separately.', 'モデル取得後は Mac 内で文字起こし。オンライン AI 校正は別途設定。', '모델 다운로드 후 Mac에서 로컬 전사. 온라인 AI 교정은 별도 설정.', 'Nach dem Modelldownload lokal transkribieren; Online-KI-Korrektur separat einrichten.');
-const cost = l('GitHub 版免费；App Store 版订阅；在线服务另计。', 'Free GitHub build; App Store subscriptions; online services billed separately.', 'GitHub 版は無料、App Store 版はサブスク。オンラインサービスは別料金。', 'GitHub 버전 무료, App Store 구독, 온라인 서비스 별도 과금.', 'GitHub-Version kostenlos; App-Store-Abos; Online-Dienste separat berechnet.');
+const cost = l("免费直发版，无需订阅或购买；在线 AI 服务另计。", "Free direct download, with no subscription or purchase; online AI services billed separately.", "直接配布版は無料で、サブスクリプションや購入は不要。オンライン AI は別料金。", "구독이나 구매 없는 무료 직접 다운로드. 온라인 AI 서비스 비용은 별도입니다.", "Kostenloser Direktdownload ohne Abo oder Kauf; Online-KI-Dienste werden separat berechnet.");
 const purpose = l('主要任务', 'Main task', '主な用途', '주요 작업', 'Hauptaufgabe');
 const processing = l('语音处理', 'Speech processing', '音声処理', '음성 처리', 'Sprachverarbeitung');
 const pricing = l('费用与版本', 'Cost & editions', '費用と配布版', '비용과 버전', 'Kosten & Versionen');

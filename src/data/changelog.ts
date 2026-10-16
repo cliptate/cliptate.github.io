@@ -27,11 +27,11 @@ export const changelog = {
   previous: { zh: '上一版本', en: 'Previous release', ja: '前のバージョン', ko: '이전 버전', de: 'Vorherige Version' },
   next: { zh: '下一版本', en: 'Next release', ja: '次のバージョン', ko: '다음 버전', de: 'Nächste Version' },
   scope: {
-    zh: '这里整理正式版本的用户可见变化，版本日期以发布文档为准。GitHub 免费版与 App Store 版的能力可能不同；Nightly 预览不计入正式版本。完整提交和验证记录请查看英文原文。',
-    en: 'This archive summarizes user-visible changes in stable releases, using the dates in the release documents. GitHub and App Store capabilities may differ. Nightly previews are separate; see the English source for commits and validation.',
-    ja: '正式版の利用者向け変更を、リリース文書の日付で掲載しています。無料の GitHub 版と App Store 版では機能が異なる場合があります。Nightly は別のプレビュー版です。コミットと検証記録は英語の原文で確認できます。',
-    ko: '이 기록은 릴리스 문서 날짜를 기준으로 정식 버전의 사용자 관련 변경을 정리합니다. 무료 GitHub 버전과 App Store 버전의 기능은 다를 수 있습니다. Nightly는 별도 미리보기이며 커밋과 검증 기록은 영어 원문에서 확인할 수 있습니다.',
-    de: 'Dieses Archiv fasst sichtbare Änderungen stabiler Versionen mit den Daten der Release-Dokumente zusammen. GitHub- und App-Store-Version können sich unterscheiden. Nightly ist eine separate Vorschau; Commits und Prüfungen stehen im englischen Original.',
+    "zh": "这里整理正式版本的用户可见变化，版本日期以发布文档为准。当前源码仅保留免费直发版；历史版本中的 App Store 和订阅说明记录的是当时的行为。Nightly 预览不计入正式版本。完整提交和验证记录请查看英文原文。",
+    "en": "This archive summarizes stable releases using the dates in their release documents. Current source supports free direct downloads only; historical App Store and subscription references describe those releases. Nightly previews are separate. See the English source for commits and validation.",
+    "ja": "正式版の変更を、リリース文書の日付で掲載しています。現在のソースは無料の直接配布版のみです。過去の App Store やサブスクリプションの記述は当時の動作を示します。Nightly は別のプレビュー版です。コミットと検証記録は英語の原文で確認できます。",
+    "ko": "이 기록은 릴리스 문서 날짜를 기준으로 정식 버전의 변경을 정리합니다. 현재 소스는 무료 직접 배포만 지원합니다. 과거 App Store와 구독 설명은 당시 동작을 기록한 것입니다. Nightly는 별도 미리보기이며 커밋과 검증 기록은 영어 원문에서 확인할 수 있습니다.",
+    "de": "Dieses Archiv fasst stabile Versionen mit den Daten ihrer Release-Dokumente zusammen. Der aktuelle Quellcode unterstützt nur kostenlose Direktdownloads; frühere Angaben zu App Store und Abos beschreiben den damaligen Stand. Nightly ist eine separate Vorschau. Commits und Prüfungen stehen im englischen Original."
   },
 } satisfies Record<string, LocalizedString>;
 

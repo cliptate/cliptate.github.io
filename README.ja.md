@@ -4,7 +4,7 @@
 
 [Cliptate 公式サイト](https://cliptate.github.io) のソースです。macOS アプリは [cliptate/cliptate](https://github.com/cliptate/cliptate) にあります。サイトはアプリの main ブランチに基づき、配布版の機能は各 Release によって異なります。
 
-Mac で文字起こし、無音カット、字幕編集、音声合成。必要に応じて AI 校正や翻訳も利用できます。無料の GitHub 版は全モデルと Pro 機能を開放し、CLI でスクリプトと連携。
+Mac で文字起こし、無音カット、字幕編集、音声合成。必要に応じて AI 校正や翻訳も利用できます。無料の GitHub 版は全モデルと機能を開放し、CLI でスクリプトと連携。
 
 ![音声入力の統計とアクティビティを表示する Cliptate 日本語ホーム画面](public/assets/screenshots/home.ja.jpg)
 
@@ -23,8 +23,7 @@ Mac で文字起こし、無音カット、字幕編集、音声合成。必要�
 
 Apple Silicon（M1 以降）と macOS 15 以降が必要。モデルの容量・メモリ要件は選択により異なるため、十分な空き容量を確保してください。
 
-- **[無料 GitHub 版](https://github.com/cliptate/cliptate/releases)** — 全モデルと Pro 機能を無料開放、サブスクリプション不要。ネイティブ CLI とアプリ内更新、許可後のテキスト挿入・グローバルショートカットに対応。オンライン AI の料金はサービス側で別途発生します。
-- **[App Store 版](https://apps.apple.com/cn/app/%E5%89%AA%E8%A8%80-cliptate/id6754441004?mt=12)** — App Store 版はサブスクリプションとサンドボックス制限を採用し、CLI は含みません。音声入力はコピー・貼り付けで利用し、ショートカットにも制限があります。機能と価格はストアで確認してください。
+- **[無料 GitHub 版](https://github.com/cliptate/cliptate/releases)** — 全モデルと機能を無料開放、サブスクリプション不要。ネイティブ CLI とアプリ内更新、許可後のテキスト挿入・グローバルショートカットに対応。オンライン AI の料金はサービス側で別途発生します。
 - **[Nightly プレビュービルド](https://github.com/cliptate/cliptate/releases/tag/nightly)** — Nightly は main から定期生成され、正式リリース前の変更を含む場合があります。各ビルドの説明を確認してください。
 
 1. Release の Cliptate.dmg をダウンロードし、アプリケーションへドラッグ。同ページの SHA-256 ファイルで検証できます。
@@ -96,7 +95,7 @@ npm run preview
 
 テンプレートは `src/views/`、ルートは `src/pages/` にあります。ビルド後の `npm run check:seo` は言語、リンク、画像、主要メタ情報と構造化データを検証し、公開前の CI でも実行します。公開後は Search Console と Bing Webmaster Tools に `/sitemap-index.xml` を送信し、登録と順位を確認してください。FAQ JSON-LD は表示中の質問と回答を記述します。Google の FAQ リッチリザルトは廃止済みです。
 
-機能の説明を変更する前に、アプリのソース、docs/development.md、docs/cli.md、リリースノートを確認。5 言語を更新し、ローカル音声とオンライン AI、GitHub と App Store、GUI と CLI、公開済みと最新ソースの機能を区別してください。
+機能の説明を変更する前に、アプリのソース、docs/development.md、docs/cli.md、リリースノートを確認。5 言語を更新し、ローカル音声とオンライン AI、GUI と CLI、公開済みと最新ソースの機能を区別してください。
 
 - src/data/site.ts
 - src/views/

@@ -4,7 +4,7 @@
 
 Quellcode der [Cliptate-Website](https://cliptate.github.io). Die macOS-App liegt in [cliptate/cliptate](https://github.com/cliptate/cliptate). Die Inhalte folgen dem main-Zweig der App; Funktionen der Installationspakete hängen vom jeweiligen Release ab.
 
-Transkribieren, Pausen schneiden, Untertitel bearbeiten und Sprache am Mac erzeugen. KI-Korrektur und Übersetzung bei Bedarf aktivieren. Die kostenlose GitHub-Version bietet alle Modelle, Pro-Funktionen und eine CLI.
+Transkribieren, Pausen schneiden, Untertitel bearbeiten und Sprache am Mac erzeugen. KI-Korrektur und Übersetzung bei Bedarf aktivieren. Die kostenlose GitHub-Version bietet alle Modelle und Funktionen sowie eine CLI.
 
 ![Cliptate-Startseite auf Deutsch mit Diktierstatistik und Aktivitätsverlauf](public/assets/screenshots/home.de.jpg)
 
@@ -23,8 +23,7 @@ Transkribieren, Pausen schneiden, Untertitel bearbeiten und Sprache am Mac erzeu
 
 Erfordert Apple Silicon (M1 oder neuer) und macOS 15 oder neuer. Modellgrößen und RAM-Anforderungen variieren; ausreichend Speicherplatz einplanen.
 
-- **[Kostenlose GitHub-Version](https://github.com/cliptate/cliptate/releases)** — Alle Modelle und Pro-Funktionen kostenlos, ohne Abo. Mit nativer CLI, Updates in der App und Texteingabe sowie globalen Tastaturkürzeln nach erteilter Berechtigung. Online-KI-Anbieter berechnen separat.
-- **[App-Store-Version](https://apps.apple.com/cn/app/%E5%89%AA%E8%A8%80-cliptate/id6754441004?mt=12)** — App-Store-Versionen verwenden Abos und Sandbox-Einschränkungen, ohne CLI. Diktierter Text wird kopiert und eingefügt; Tastaturkürzel sind eingeschränkt. Funktionen und Preise im Store prüfen.
+- **[Kostenlose GitHub-Version](https://github.com/cliptate/cliptate/releases)** — Alle Modelle und Funktionen kostenlos, ohne Abo. Mit nativer CLI, Updates in der App und Texteingabe sowie globalen Tastaturkürzeln nach erteilter Berechtigung. Online-KI-Anbieter berechnen separat.
 - **[Nightly-Vorabversionen](https://github.com/cliptate/cliptate/releases/tag/nightly)** — Nightly-Versionen folgen regelmäßig main und können unveröffentlichte Änderungen enthalten. Enthaltene Funktionen in den jeweiligen Hinweisen prüfen.
 
 1. Cliptate.dmg aus einem Release laden und die App in Programme ziehen. Mit der zugehörigen SHA-256-Datei den Download prüfen.
@@ -96,7 +95,7 @@ Chinesisch behält die bisherigen Root-URLs. Englisch, Japanisch, Koreanisch und
 
 Vorlagen liegen in `src/views/`, Routen in `src/pages/`. Nach dem Build prüft `npm run check:seo` Sprachseiten, Links, Bilder, zentrale Metadaten und strukturierte Daten. CI führt diese Prüfungen vor der Veröffentlichung aus. Danach `/sitemap-index.xml` in Search Console und Bing Webmaster Tools einreichen und Indexierung sowie Rankings beobachten. FAQ-JSON-LD beschreibt sichtbare Fragen und Antworten; Google hat FAQ-Rich-Results eingestellt.
 
-Vor Änderungen App-Quellcode, docs/development.md, docs/cli.md und Versionshinweise prüfen. Alle fünf Sprachen aktualisieren; lokale Sprachfunktionen und Online-KI, GitHub und App Store, GUI und CLI sowie veröffentlichte und neue Quellcode-Funktionen unterscheiden.
+Vor Änderungen App-Quellcode, docs/development.md, docs/cli.md und Versionshinweise prüfen. Alle fünf Sprachen aktualisieren; lokale Sprachfunktionen und Online-KI, GUI und CLI sowie veröffentlichte und neue Quellcode-Funktionen unterscheiden.
 
 - src/data/site.ts
 - src/views/

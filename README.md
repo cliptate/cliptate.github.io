@@ -4,7 +4,7 @@
 
 Source for the [Cliptate website](https://cliptate.github.io). The macOS application lives in [cliptate/cliptate](https://github.com/cliptate/cliptate). Website content follows the application’s main branch; packaged features depend on the chosen Release.
 
-Transcribe, trim pauses, edit captions, and synthesize speech on your Mac. Enable AI correction and translation when needed. The free GitHub build unlocks all models and Pro features, with a CLI for scripts.
+Transcribe, trim pauses, edit captions, and synthesize speech on your Mac. Enable AI correction and translation when needed. The free GitHub build unlocks all models and features, with a CLI for scripts.
 
 ![Cliptate Home dashboard in English with dictation statistics and activity history](public/assets/screenshots/home.en.jpg)
 
@@ -23,8 +23,7 @@ Transcribe, trim pauses, edit captions, and synthesize speech on your Mac. Enabl
 
 Requires Apple Silicon (M1 or newer) and macOS 15 or later. Model downloads and memory requirements vary; allow enough storage for your selections.
 
-- **[Free GitHub build](https://github.com/cliptate/cliptate/releases)** — All models and Pro features are free, with no subscription. Includes the native CLI and in-app updates, plus Accessibility-backed text insertion and global shortcuts with permission. Online AI providers charge separately.
-- **[App Store build](https://apps.apple.com/cn/app/%E5%89%AA%E8%A8%80-cliptate/id6754441004?mt=12)** — App Store builds use subscriptions and sandbox restrictions and do not include the CLI. Dictated text uses copy and paste, with channel-specific shortcut restrictions. Check the store listing for features and pricing.
+- **[Free GitHub build](https://github.com/cliptate/cliptate/releases)** — All models and features are free, with no subscription. Includes the native CLI and in-app updates, plus Accessibility-backed text insertion and global shortcuts with permission. Online AI providers charge separately.
 - **[Nightly preview builds](https://github.com/cliptate/cliptate/releases/tag/nightly)** — Nightly builds track main periodically and may contain unreleased changes. Check each build’s notes for included features.
 
 1. Download Cliptate.dmg from a Release and drag the app into Applications. Use its SHA-256 file to verify the download.
@@ -92,7 +91,7 @@ After deployment, open the Cliptate property in Google Analytics and check Realt
 
 ## Articles and comparisons
 
-The `/blog/` index covers Cliptate vs Wispr Flow, MacWhisper, and Descript. Each article includes a workflow comparison, edition differences, a practical trial, and dated official sources in all five languages. A compact homepage entry and navigation link to the articles. `/guide/` holds installation details, models, CLI examples, and common questions, leaving the homepage focused on the product.
+The `/blog/` index covers Cliptate vs Wispr Flow, MacWhisper, and Descript. Each article includes a workflow comparison, free direct distribution, a practical trial, and dated official sources in all five languages. A compact homepage entry and navigation link to the articles. `/guide/` holds installation details, models, CLI examples, and common questions, leaving the homepage focused on the product.
 
 ## Content maintenance
 
@@ -104,7 +103,7 @@ Chinese keeps the existing root URLs. English, Japanese, Korean, and German use 
 
 Page templates live in `src/views/`; `src/pages/` contains static route wrappers. After building, `npm run check:seo` checks every generated locale, internal links, anchors, images, core metadata, and structured-data relationships. Deployment runs type and SEO checks before publication. Submit `/sitemap-index.xml` in Google Search Console and Bing Webmaster Tools after deployment; ranking and indexing require observation in those services. FAQ JSON-LD describes the visible questions and answers; Google [retired FAQ rich results](https://developers.google.com/search/updates#june-2026), so it is not a Google rich-result tactic.
 
-Before changing claims, check the app source, docs/development.md, docs/cli.md, and release notes. Update all five languages. Distinguish local speech from optional online AI, GitHub from App Store builds, GUI from CLI exports, and released features from latest-source additions.
+Before changing claims, check the app source, docs/development.md, docs/cli.md, and release notes. Update all five languages. Distinguish local speech from optional online AI, GUI from CLI exports, and released features from latest-source additions.
 
 - src/data/site.ts
 - src/views/

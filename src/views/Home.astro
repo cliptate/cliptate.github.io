@@ -327,9 +327,9 @@ const structuredData = {
           <a class="cta-primary" href={guide.releasesUrl} target="_blank" rel="noreferrer"><LocalizedText value={guide.download.direct.cta} /></a>
         </article>
         <article class="glass-panel guide-card download-card">
-          <h3><LocalizedText value={guide.download.store.title} /></h3>
-          <p class="lede"><LocalizedText value={guide.download.store.body} /></p>
-          <a class="cta-secondary" href={siteData.appStoreUrl} target="_blank" rel="noreferrer"><LocalizedText value={guide.download.store.cta} /></a>
+          <h3><LocalizedText value={guide.download.nightly} /></h3>
+          <p class="lede"><LocalizedText value={guide.download.nightlyNote} /></p>
+          <a class="cta-secondary" href={guide.nightlyUrl} target="_blank" rel="noreferrer"><LocalizedText value={guide.download.nightly} /></a>
         </article>
       </div>
       <a class="text-link setup-guide-link" href={localizedPath('/guide/', language)}><LocalizedText value={guide.page.read} /> →</a>
@@ -345,7 +345,6 @@ const structuredData = {
         <a href={localizedPath('/guide/', language)}><LocalizedText value={guide.links.guide} /></a>
         <a href={localizedPath('/changelog/', language)}><LocalizedText value={changelog.nav} /></a>
         <a href={guide.issuesUrl} target="_blank" rel="noreferrer"><LocalizedText value={guide.links.feedback} /></a>
-        <a href={siteData.appStoreUrl} target="_blank" rel="noreferrer">App Store</a>
       </div>
     </footer>
   </main>

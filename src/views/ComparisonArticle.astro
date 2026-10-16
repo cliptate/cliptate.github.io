@@ -15,13 +15,13 @@ const canonical = new URL(localizedPath(`/blog/${article.slug}/`, language), Ast
 const structuredData = {
   '@context': 'https://schema.org', '@type': 'Article',
   headline: article.title[language], description: article.description[language],
-  datePublished: blog.date, dateModified: blog.date,
+  datePublished: blog.date, dateModified: blog.modified,
   author: { '@type': 'Organization', name: 'Cliptate', url: Astro.site?.toString() },
   mainEntityOfPage: canonical.toString(), inLanguage: languages.find(({ code }) => code === language)!.htmlLang,
 };
 ---
 
-<BaseLayout title={title} description={article.description} type="article">
+<BaseLayout title={title} description={article.description} type="article" published={blog.date} modified={blog.modified}>
   <script type="application/ld+json" is:inline set:html={serializeJson(structuredData)} />
   <main class="site-shell">
     <SiteHeader />

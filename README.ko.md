@@ -4,7 +4,7 @@
 
 [Cliptate 웹사이트](https://cliptate.github.io)의 소스 저장소입니다. macOS 앱은 [cliptate/cliptate](https://github.com/cliptate/cliptate)에 있습니다. 웹사이트는 앱의 main 브랜치를 기준으로 하며 설치 버전의 기능은 해당 Release에 따라 다릅니다.
 
-Mac에서 전사, 무음 제거, 자막 편집, 음성 합성을 처리하세요. 필요할 때 AI 교정과 번역을 사용하세요. 무료 GitHub 버전은 모든 모델과 Pro 기능, 스크립트용 CLI를 제공합니다.
+Mac에서 전사, 무음 제거, 자막 편집, 음성 합성을 처리하세요. 필요할 때 AI 교정과 번역을 사용하세요. 무료 GitHub 버전은 모든 모델과 기능, 스크립트용 CLI를 제공합니다.
 
 ![받아쓰기 통계와 활동 기록을 보여주는 Cliptate 한국어 홈 화면](public/assets/screenshots/home.ko.jpg)
 
@@ -23,8 +23,7 @@ Mac에서 전사, 무음 제거, 자막 편집, 음성 합성을 처리하세요
 
 Apple Silicon(M1 이상)과 macOS 15 이상이 필요합니다. 모델 크기와 메모리 요구량이 다르므로 충분한 저장 공간을 확보하세요.
 
-- **[무료 GitHub 버전](https://github.com/cliptate/cliptate/releases)** — 구독 없이 모든 모델과 Pro 기능을 무료로 제공합니다. 네이티브 CLI, 앱 내 업데이트, 권한 허용 후 텍스트 삽입과 글로벌 단축키를 지원합니다. 온라인 AI 제공업체 요금은 별도입니다.
-- **[App Store 버전](https://apps.apple.com/cn/app/%E5%89%AA%E8%A8%80-cliptate/id6754441004?mt=12)** — App Store 버전은 구독 정책과 샌드박스 제한을 적용하며 CLI가 없습니다. 받아쓴 텍스트는 복사해 붙여넣고 단축키도 제한됩니다. 기능과 가격은 스토어 페이지를 확인하세요.
+- **[무료 GitHub 버전](https://github.com/cliptate/cliptate/releases)** — 구독 없이 모든 모델과 기능을 무료로 제공합니다. 네이티브 CLI, 앱 내 업데이트, 권한 허용 후 텍스트 삽입과 글로벌 단축키를 지원합니다. 온라인 AI 제공업체 요금은 별도입니다.
 - **[Nightly 미리보기 빌드](https://github.com/cliptate/cliptate/releases/tag/nightly)** — Nightly는 main에서 주기적으로 빌드되며 미출시 변경이 포함될 수 있습니다. 해당 빌드 설명으로 기능을 확인하세요.
 
 1. Release에서 Cliptate.dmg를 다운로드하고 응용 프로그램 폴더로 드래그하세요. 같은 페이지의 SHA-256 파일로 검증할 수 있습니다.
@@ -96,7 +95,7 @@ npm run preview
 
 템플릿은 `src/views/`, 라우트는 `src/pages/`에 있습니다. 빌드 후 `npm run check:seo`로 언어, 링크, 이미지, 주요 메타 정보와 구조화 데이터를 검증합니다. 게시 전 CI에서도 실행합니다. 게시 후 Search Console과 Bing Webmaster Tools에 `/sitemap-index.xml`을 제출하고 색인과 순위를 확인하세요. FAQ JSON-LD는 표시된 질문과 답변을 설명합니다. Google FAQ 리치 결과는 종료되었습니다.
 
-기능 설명을 수정하기 전에 앱 소스, docs/development.md, docs/cli.md, 릴리스 노트를 확인하세요. 다섯 언어를 업데이트하고 로컬 음성과 온라인 AI, GitHub와 App Store, GUI와 CLI, 출시 기능과 최신 소스 기능을 구분하세요.
+기능 설명을 수정하기 전에 앱 소스, docs/development.md, docs/cli.md, 릴리스 노트를 확인하세요. 다섯 언어를 업데이트하고 로컬 음성과 온라인 AI, GUI와 CLI, 출시 기능과 최신 소스 기능을 구분하세요.
 
 - src/data/site.ts
 - src/views/
